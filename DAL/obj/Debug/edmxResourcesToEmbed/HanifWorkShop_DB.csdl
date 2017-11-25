@@ -1,0 +1,718 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="HanifWorkShop_DBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="HanifWorkShop_DBEntity" annotation:LazyLoadingEnabled="true">
+    <FunctionImport Name="sp_EmployeeInformationForSpecificBusRoute" ReturnType="Collection(HanifWorkShop_DBModel.sp_EmployeeInformationForSpecificBusRoute_Result)">
+      <Parameter Name="routeId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_BusInfoAndEmployeeInfoForSpecificBusRegistrationNo" ReturnType="Collection(HanifWorkShop_DBModel.sp_BusInfoAndEmployeeInfoForSpecificBusRegistrationNo_Result)">
+      <Parameter Name="RegistrationNo" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_BusInfoForSpecificBusRegistrationNo" ReturnType="Collection(HanifWorkShop_DBModel.sp_BusInfoForSpecificBusRegistrationNo_Result)">
+      <Parameter Name="RegistrationNo" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_PartsBuyHistoryForSpecificDateFromSupplier" ReturnType="Collection(HanifWorkShop_DBModel.sp_PartsBuyHistoryForSpecificDateFromSupplier_Result)">
+      <Parameter Name="supplierId" Mode="In" Type="Int32" />
+      <Parameter Name="date" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="sp_totalCostHistoryFromDateToDateForABusRegistrationNo" ReturnType="Collection(HanifWorkShop_DBModel.sp_totalCostHistoryFromDateToDateForABusRegistrationNo_Result)">
+      <Parameter Name="registrationNo" Mode="In" Type="String" />
+      <Parameter Name="fromDate" Mode="In" Type="DateTime" />
+      <Parameter Name="toDate" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="sp_BusInformationListForABusRoute" ReturnType="Collection(HanifWorkShop_DBModel.sp_BusInformationListForABusRoute_Result)">
+      <Parameter Name="routeId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_totalCostHistoryFromDateToDateForBusRegistrationNoFinal" ReturnType="Collection(HanifWorkShop_DBModel.sp_totalCostHistoryFromDateToDateForBusRegistrationNoFinal_Result)">
+      <Parameter Name="registrationNo" Mode="In" Type="String" />
+      <Parameter Name="fromDate" Mode="In" Type="DateTime" />
+      <Parameter Name="toDate" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="sp_PartsBuyHistoryFromDateToDateFromSupplier" ReturnType="Collection(HanifWorkShop_DBModel.sp_PartsBuyHistoryFromDateToDateFromSupplier_Result)">
+      <Parameter Name="supplierId" Mode="In" Type="Int32" />
+      <Parameter Name="fromDate" Mode="In" Type="DateTime" />
+      <Parameter Name="toDate" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="sp_totalCostHistoryFromDateToDateForBusRegistrationNoFullFinal" ReturnType="Collection(HanifWorkShop_DBModel.sp_totalCostHistoryFromDateToDateForBusRegistrationNoFullFinal_Result)">
+      <Parameter Name="registrationNo" Mode="In" Type="String" />
+      <Parameter Name="fromDate" Mode="In" Type="DateTime" />
+      <Parameter Name="toDate" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <EntitySet Name="C__MigrationHistory" EntityType="HanifWorkShop_DBModel.C__MigrationHistory" />
+    <EntitySet Name="AspNetRoles" EntityType="HanifWorkShop_DBModel.AspNetRole" />
+    <EntitySet Name="AspNetUserClaims" EntityType="HanifWorkShop_DBModel.AspNetUserClaim" />
+    <EntitySet Name="AspNetUserLogins" EntityType="HanifWorkShop_DBModel.AspNetUserLogin" />
+    <EntitySet Name="AspNetUsers" EntityType="HanifWorkShop_DBModel.AspNetUser" />
+    <EntitySet Name="tblActions" EntityType="HanifWorkShop_DBModel.tblAction" />
+    <EntitySet Name="tblBusInformations" EntityType="HanifWorkShop_DBModel.tblBusInformation" />
+    <EntitySet Name="tblBuyPartsFromSuppliers" EntityType="HanifWorkShop_DBModel.tblBuyPartsFromSupplier" />
+    <EntitySet Name="tblDesignations" EntityType="HanifWorkShop_DBModel.tblDesignation" />
+    <EntitySet Name="tblEmployeeInformations" EntityType="HanifWorkShop_DBModel.tblEmployeeInformation" />
+    <EntitySet Name="tblModules" EntityType="HanifWorkShop_DBModel.tblModule" />
+    <EntitySet Name="tblPartsInfoes" EntityType="HanifWorkShop_DBModel.tblPartsInfo" />
+    <EntitySet Name="tblPartsTransfers" EntityType="HanifWorkShop_DBModel.tblPartsTransfer" />
+    <EntitySet Name="tblRoutes" EntityType="HanifWorkShop_DBModel.tblRoute" />
+    <EntitySet Name="tblStores" EntityType="HanifWorkShop_DBModel.tblStore" />
+    <EntitySet Name="tblSuppliers" EntityType="HanifWorkShop_DBModel.tblSupplier" />
+    <EntitySet Name="tblUserActionMappings" EntityType="HanifWorkShop_DBModel.tblUserActionMapping" />
+    <EntitySet Name="tblWorkShopInformations" EntityType="HanifWorkShop_DBModel.tblWorkShopInformation" />
+    <EntitySet Name="tblWorkShopUsers" EntityType="HanifWorkShop_DBModel.tblWorkShopUser" />
+    <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="HanifWorkShop_DBModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUser" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserClaim" EntitySet="AspNetUserClaims" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="HanifWorkShop_DBModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUser" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserLogin" EntitySet="AspNetUserLogins" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblAgencyUser_AspNetUsers" Association="HanifWorkShop_DBModel.FK_tblAgencyUser_AspNetUsers">
+      <End Role="AspNetUser" EntitySet="AspNetUsers" />
+      <End Role="tblWorkShopUser" EntitySet="tblWorkShopUsers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblUserActionMapping_AspNetUsers" Association="HanifWorkShop_DBModel.FK_tblUserActionMapping_AspNetUsers">
+      <End Role="AspNetUser" EntitySet="AspNetUsers" />
+      <End Role="tblUserActionMapping" EntitySet="tblUserActionMappings" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblAction_tblModule" Association="HanifWorkShop_DBModel.FK_tblAction_tblModule">
+      <End Role="tblModule" EntitySet="tblModules" />
+      <End Role="tblAction" EntitySet="tblActions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblUserActionMapping_tblAction" Association="HanifWorkShop_DBModel.FK_tblUserActionMapping_tblAction">
+      <End Role="tblAction" EntitySet="tblActions" />
+      <End Role="tblUserActionMapping" EntitySet="tblUserActionMappings" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblBusInformation_tblRoute" Association="HanifWorkShop_DBModel.FK_tblBusInformation_tblRoute">
+      <End Role="tblRoute" EntitySet="tblRoutes" />
+      <End Role="tblBusInformation" EntitySet="tblBusInformations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblBuyPartsFromSupplier_tblStore" Association="HanifWorkShop_DBModel.FK_tblBuyPartsFromSupplier_tblStore">
+      <End Role="tblStore" EntitySet="tblStores" />
+      <End Role="tblBuyPartsFromSupplier" EntitySet="tblBuyPartsFromSuppliers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblBuyPartsFromSupplierForBus_tblBuyPartsFromSupplierForBus" Association="HanifWorkShop_DBModel.FK_tblBuyPartsFromSupplierForBus_tblBuyPartsFromSupplierForBus">
+      <End Role="tblPartsInfo" EntitySet="tblPartsInfoes" />
+      <End Role="tblBuyPartsFromSupplier" EntitySet="tblBuyPartsFromSuppliers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblBuyPartsFromSupplierForBus_tblSupplier" Association="HanifWorkShop_DBModel.FK_tblBuyPartsFromSupplierForBus_tblSupplier">
+      <End Role="tblSupplier" EntitySet="tblSuppliers" />
+      <End Role="tblBuyPartsFromSupplier" EntitySet="tblBuyPartsFromSuppliers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblEmployeeInformation_tblDesignation" Association="HanifWorkShop_DBModel.FK_tblEmployeeInformation_tblDesignation">
+      <End Role="tblDesignation" EntitySet="tblDesignations" />
+      <End Role="tblEmployeeInformation" EntitySet="tblEmployeeInformations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblEmployeeInformation_tblRoute" Association="HanifWorkShop_DBModel.FK_tblEmployeeInformation_tblRoute">
+      <End Role="tblRoute" EntitySet="tblRoutes" />
+      <End Role="tblEmployeeInformation" EntitySet="tblEmployeeInformations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblPartsTransfer_tblPartsInfo" Association="HanifWorkShop_DBModel.FK_tblPartsTransfer_tblPartsInfo">
+      <End Role="tblPartsInfo" EntitySet="tblPartsInfoes" />
+      <End Role="tblPartsTransfer" EntitySet="tblPartsTransfers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblPartsTransfer_tblStore" Association="HanifWorkShop_DBModel.FK_tblPartsTransfer_tblStore">
+      <End Role="tblStore" EntitySet="tblStores" />
+      <End Role="tblPartsTransfer" EntitySet="tblPartsTransfers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblAgencyInformation_tblAgencyInformation" Association="HanifWorkShop_DBModel.FK_tblAgencyInformation_tblAgencyInformation">
+      <End Role="tblWorkShopInformation" EntitySet="tblWorkShopInformations" />
+      <End Role="tblWorkShopInformation1" EntitySet="tblWorkShopInformations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblAgencyUser_tblAgencyUser" Association="HanifWorkShop_DBModel.FK_tblAgencyUser_tblAgencyUser">
+      <End Role="tblWorkShopInformation" EntitySet="tblWorkShopInformations" />
+      <End Role="tblWorkShopUser" EntitySet="tblWorkShopUsers" />
+    </AssociationSet>
+    <AssociationSet Name="AspNetUserRoles" Association="HanifWorkShop_DBModel.AspNetUserRoles">
+      <End Role="AspNetRole" EntitySet="AspNetRoles" />
+      <End Role="AspNetUser" EntitySet="AspNetUsers" />
+    </AssociationSet>
+  </EntityContainer>
+  <ComplexType Name="sp_EmployeeInformationForSpecificBusRoute_Result">
+    <Property Type="Int32" Name="EmployeeId" Nullable="false" />
+    <Property Type="String" Name="EmployeeName" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="EmployeeEmail" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="EmployeeAddress" Nullable="true" MaxLength="300" />
+    <Property Type="String" Name="EmployeeNid" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="ContactNumber" Nullable="true" MaxLength="100" />
+    <Property Type="Int32" Name="Salary" Nullable="true" />
+    <Property Type="Int32" Name="DesignationId" Nullable="true" />
+    <Property Type="String" Name="DesignationName" Nullable="true" MaxLength="150" />
+  </ComplexType>
+  <ComplexType Name="sp_BusInfoAndEmployeeInfoForSpecificBusRegistrationNo_Result">
+    <Property Type="Int32" Name="BusInformationId" Nullable="false" />
+    <Property Type="String" Name="ModelNo" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="ChassisNo" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="RouteName" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="EmployeeName" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="ContactNumber" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="DesignationName" Nullable="true" MaxLength="150" />
+  </ComplexType>
+  <ComplexType Name="sp_BusInfoForSpecificBusRegistrationNo_Result">
+    <Property Type="Int32" Name="BusInformationId" Nullable="false" />
+    <Property Type="String" Name="ModelNo" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="ChassisNo" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="RouteName" Nullable="true" MaxLength="150" />
+  </ComplexType>
+  <ComplexType Name="sp_PartsBuyHistoryForSpecificDateFromSupplier_Result">
+    <Property Type="String" Name="RegistrationNo" Nullable="true" MaxLength="150" />
+    <Property Type="Int32" Name="PartsId" Nullable="true" />
+    <Property Type="String" Name="PartsName" Nullable="true" MaxLength="250" />
+    <Property Type="Int32" Name="Quantity" Nullable="true" />
+    <Property Type="Int32" Name="UnitPrice" Nullable="true" />
+    <Property Type="Int32" Name="Price" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_totalCostHistoryFromDateToDateForABusRegistrationNo_Result">
+    <Property Type="Int32" Name="SupplierId" Nullable="true" />
+    <Property Type="String" Name="CompanyName" Nullable="true" MaxLength="200" />
+    <Property Type="Int32" Name="PartsId" Nullable="true" />
+    <Property Type="String" Name="PartsName" Nullable="true" MaxLength="250" />
+    <Property Type="Int32" Name="Quantity" Nullable="true" />
+    <Property Type="Int32" Name="UnitPrice" Nullable="true" />
+    <Property Type="Int32" Name="Price" Nullable="true" />
+    <Property Type="String" Name="Other" Nullable="true" MaxLength="150" />
+  </ComplexType>
+  <ComplexType Name="sp_BusInformationListForABusRoute_Result">
+    <Property Type="Int32" Name="BusInformationId" Nullable="false" />
+    <Property Type="String" Name="RegistrationNo" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="ModelNo" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="ChassisNo" Nullable="true" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="sp_totalCostHistoryFromDateToDateForBusRegistrationNoFinal_Result">
+    <Property Type="Int32" Name="SupplierId" Nullable="true" />
+    <Property Type="String" Name="CompanyName" Nullable="true" MaxLength="200" />
+    <Property Type="Int32" Name="PartsId" Nullable="true" />
+    <Property Type="String" Name="PartsName" Nullable="true" MaxLength="250" />
+    <Property Type="Int32" Name="Quantity" Nullable="true" />
+    <Property Type="Int32" Name="UnitPrice" Nullable="true" />
+    <Property Type="Int32" Name="Price" Nullable="true" />
+    <Property Type="String" Name="Other" Nullable="true" MaxLength="150" />
+    <Property Type="Int32" Name="StoreId" Nullable="true" />
+    <Property Type="String" Name="StoreName" Nullable="true" MaxLength="250" />
+  </ComplexType>
+  <ComplexType Name="sp_PartsBuyHistoryFromDateToDateFromSupplier_Result">
+    <Property Type="String" Name="RegistrationNo" Nullable="true" MaxLength="150" />
+    <Property Type="Int32" Name="PartsId" Nullable="true" />
+    <Property Type="String" Name="PartsName" Nullable="true" MaxLength="250" />
+    <Property Type="Int32" Name="Quantity" Nullable="true" />
+    <Property Type="Int32" Name="UnitPrice" Nullable="true" />
+    <Property Type="Int32" Name="Price" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_totalCostHistoryFromDateToDateForBusRegistrationNoFullFinal_Result">
+    <Property Type="Int32" Name="SupplierId" Nullable="true" />
+    <Property Type="String" Name="CompanyName" Nullable="true" MaxLength="200" />
+    <Property Type="Int32" Name="PartsId" Nullable="true" />
+    <Property Type="String" Name="PartsName" Nullable="true" MaxLength="250" />
+    <Property Type="Int32" Name="Quantity" Nullable="true" />
+    <Property Type="Int32" Name="UnitPrice" Nullable="true" />
+    <Property Type="Int32" Name="Price" Nullable="true" />
+    <Property Type="String" Name="Other" Nullable="true" MaxLength="150" />
+    <Property Type="Int32" Name="StoreId" Nullable="true" />
+    <Property Type="String" Name="StoreName" Nullable="true" MaxLength="250" />
+  </ComplexType>
+  <EntityType Name="C__MigrationHistory">
+    <Key>
+      <PropertyRef Name="MigrationId" />
+      <PropertyRef Name="ContextKey" />
+    </Key>
+    <Property Name="MigrationId" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="ContextKey" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="Model" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+    <Property Name="ProductVersion" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="AspNetRole">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AspNetUsers" Relationship="HanifWorkShop_DBModel.AspNetUserRoles" FromRole="AspNetRole" ToRole="AspNetUser" />
+  </EntityType>
+  <EntityType Name="AspNetUserClaim">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AspNetUser" Relationship="HanifWorkShop_DBModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUserClaim" ToRole="AspNetUser" />
+  </EntityType>
+  <EntityType Name="AspNetUserLogin">
+    <Key>
+      <PropertyRef Name="LoginProvider" />
+      <PropertyRef Name="ProviderKey" />
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="LoginProvider" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="ProviderKey" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AspNetUser" Relationship="HanifWorkShop_DBModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogin" ToRole="AspNetUser" />
+  </EntityType>
+  <EntityType Name="AspNetUser">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+    <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+    <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+    <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+    <Property Name="UserName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="UserFullName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AspNetUserClaims" Relationship="HanifWorkShop_DBModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUser" ToRole="AspNetUserClaim" />
+    <NavigationProperty Name="AspNetUserLogins" Relationship="HanifWorkShop_DBModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUser" ToRole="AspNetUserLogin" />
+    <NavigationProperty Name="tblWorkShopUsers" Relationship="HanifWorkShop_DBModel.FK_tblAgencyUser_AspNetUsers" FromRole="AspNetUser" ToRole="tblWorkShopUser" />
+    <NavigationProperty Name="tblUserActionMappings" Relationship="HanifWorkShop_DBModel.FK_tblUserActionMapping_AspNetUsers" FromRole="AspNetUser" ToRole="tblUserActionMapping" />
+    <NavigationProperty Name="AspNetRoles" Relationship="HanifWorkShop_DBModel.AspNetUserRoles" FromRole="AspNetUser" ToRole="AspNetRole" />
+  </EntityType>
+  <EntityType Name="tblAction">
+    <Key>
+      <PropertyRef Name="ActionId" />
+    </Key>
+    <Property Name="ActionId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ActionName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="ActionDisplayName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="ActionUrl" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="ModuleId" Type="Int32" />
+    <Property Name="IsInMenu" Type="Boolean" />
+    <Property Name="IsView" Type="Boolean" />
+    <Property Name="WorkShopId" Type="Int32" />
+    <Property Name="CreatedBy" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="EditedBy" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDateTime" Type="DateTime" Precision="3" />
+    <Property Name="EditedDateTime" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="tblModule" Relationship="HanifWorkShop_DBModel.FK_tblAction_tblModule" FromRole="tblAction" ToRole="tblModule" />
+    <NavigationProperty Name="tblUserActionMappings" Relationship="HanifWorkShop_DBModel.FK_tblUserActionMapping_tblAction" FromRole="tblAction" ToRole="tblUserActionMapping" />
+  </EntityType>
+  <EntityType Name="tblBusInformation">
+    <Key>
+      <PropertyRef Name="BusInformationId" />
+    </Key>
+    <Property Name="BusInformationId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RegistrationNo" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="ModelNo" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="ChassisNo" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="RouteId" Type="Int32" />
+    <Property Name="WorkShopId" Type="Int32" />
+    <Property Name="CreatedBy" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="EditedBy" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDateTime" Type="DateTime" Precision="3" />
+    <Property Name="EditedDateTime" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="tblRoute" Relationship="HanifWorkShop_DBModel.FK_tblBusInformation_tblRoute" FromRole="tblBusInformation" ToRole="tblRoute" />
+  </EntityType>
+  <EntityType Name="tblBuyPartsFromSupplier">
+    <Key>
+      <PropertyRef Name="BuyId" />
+    </Key>
+    <Property Name="BuyId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RegistrationNo" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="BuyDate" Type="DateTime" Precision="3" />
+    <Property Name="PartsId" Type="Int32" />
+    <Property Name="SupplierId" Type="Int32" />
+    <Property Name="Quantity" Type="Int32" />
+    <Property Name="UnitPrice" Type="Int32" />
+    <Property Name="Price" Type="Int32" />
+    <Property Name="Other" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="StoreId" Type="Int32" />
+    <Property Name="WorkShopId" Type="Int32" />
+    <Property Name="CreatedBy" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="EditedBy" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDateTime" Type="DateTime" Precision="3" />
+    <Property Name="EditedDateTime" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="tblStore" Relationship="HanifWorkShop_DBModel.FK_tblBuyPartsFromSupplier_tblStore" FromRole="tblBuyPartsFromSupplier" ToRole="tblStore" />
+    <NavigationProperty Name="tblPartsInfo" Relationship="HanifWorkShop_DBModel.FK_tblBuyPartsFromSupplierForBus_tblBuyPartsFromSupplierForBus" FromRole="tblBuyPartsFromSupplier" ToRole="tblPartsInfo" />
+    <NavigationProperty Name="tblSupplier" Relationship="HanifWorkShop_DBModel.FK_tblBuyPartsFromSupplierForBus_tblSupplier" FromRole="tblBuyPartsFromSupplier" ToRole="tblSupplier" />
+  </EntityType>
+  <EntityType Name="tblDesignation">
+    <Key>
+      <PropertyRef Name="DesignationId" />
+    </Key>
+    <Property Name="DesignationId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DesignationName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="WorkShopId" Type="Int32" />
+    <Property Name="CreatedBy" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="EditedBy" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDateTime" Type="DateTime" Precision="3" />
+    <Property Name="EditedDateTime" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="tblEmployeeInformations" Relationship="HanifWorkShop_DBModel.FK_tblEmployeeInformation_tblDesignation" FromRole="tblDesignation" ToRole="tblEmployeeInformation" />
+  </EntityType>
+  <EntityType Name="tblEmployeeInformation">
+    <Key>
+      <PropertyRef Name="EmployeeId" />
+    </Key>
+    <Property Name="EmployeeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="EmployeeAddress" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="ContactNumber" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="EmployeeNid" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="EmployeeNidImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="EmployeeEmail" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="EmployeeImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DesignationId" Type="Int32" />
+    <Property Name="DrivingLicenseImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Salary" Type="Int32" />
+    <Property Name="RouteId" Type="Int32" />
+    <Property Name="WorkShopId" Type="Int32" />
+    <Property Name="CreatedBy" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="EditedBy" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDateTime" Type="DateTime" Precision="3" />
+    <Property Name="EditedDateTime" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="tblDesignation" Relationship="HanifWorkShop_DBModel.FK_tblEmployeeInformation_tblDesignation" FromRole="tblEmployeeInformation" ToRole="tblDesignation" />
+    <NavigationProperty Name="tblRoute" Relationship="HanifWorkShop_DBModel.FK_tblEmployeeInformation_tblRoute" FromRole="tblEmployeeInformation" ToRole="tblRoute" />
+  </EntityType>
+  <EntityType Name="tblModule">
+    <Key>
+      <PropertyRef Name="ModuleId" />
+    </Key>
+    <Property Name="ModuleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ModuleName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="ModuleOrder" Type="Int32" />
+    <Property Name="ModuleIcon" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="WorkShopId" Type="Int32" />
+    <Property Name="CreatedBy" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="EditedBy" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDateTime" Type="DateTime" Precision="3" />
+    <Property Name="EditedDateTime" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="tblActions" Relationship="HanifWorkShop_DBModel.FK_tblAction_tblModule" FromRole="tblModule" ToRole="tblAction" />
+  </EntityType>
+  <EntityType Name="tblPartsInfo">
+    <Key>
+      <PropertyRef Name="PartsId" />
+    </Key>
+    <Property Name="PartsId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PartsName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="BasePrice" Type="Int32" />
+    <Property Name="WorkShopId" Type="Int32" />
+    <Property Name="CreatedBy" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="EditedBy" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDateTime" Type="DateTime" Precision="3" />
+    <Property Name="EditedDateTime" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="tblBuyPartsFromSuppliers" Relationship="HanifWorkShop_DBModel.FK_tblBuyPartsFromSupplierForBus_tblBuyPartsFromSupplierForBus" FromRole="tblPartsInfo" ToRole="tblBuyPartsFromSupplier" />
+    <NavigationProperty Name="tblPartsTransfers" Relationship="HanifWorkShop_DBModel.FK_tblPartsTransfer_tblPartsInfo" FromRole="tblPartsInfo" ToRole="tblPartsTransfer" />
+  </EntityType>
+  <EntityType Name="tblPartsTransfer">
+    <Key>
+      <PropertyRef Name="PartsTransferId" />
+    </Key>
+    <Property Name="PartsTransferId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StoreId" Type="Int32" />
+    <Property Name="Date" Type="DateTime" Precision="3" />
+    <Property Name="PartsId" Type="Int32" />
+    <Property Name="Quantity" Type="Int32" />
+    <Property Name="UnitPrice" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Price" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="isIn" Type="Boolean" />
+    <Property Name="isOut" Type="Boolean" />
+    <Property Name="WorkShopId" Type="Int32" />
+    <Property Name="CreatedBy" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="EditedBy" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDateTime" Type="DateTime" Precision="3" />
+    <Property Name="EditedDateTime" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="tblPartsInfo" Relationship="HanifWorkShop_DBModel.FK_tblPartsTransfer_tblPartsInfo" FromRole="tblPartsTransfer" ToRole="tblPartsInfo" />
+    <NavigationProperty Name="tblStore" Relationship="HanifWorkShop_DBModel.FK_tblPartsTransfer_tblStore" FromRole="tblPartsTransfer" ToRole="tblStore" />
+  </EntityType>
+  <EntityType Name="tblRoute">
+    <Key>
+      <PropertyRef Name="RouteId" />
+    </Key>
+    <Property Name="RouteId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RouteName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="WorkShopId" Type="Int32" />
+    <Property Name="CreatedBy" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="EditedBy" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDateTime" Type="DateTime" Precision="3" />
+    <Property Name="EditedDateTime" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="tblBusInformations" Relationship="HanifWorkShop_DBModel.FK_tblBusInformation_tblRoute" FromRole="tblRoute" ToRole="tblBusInformation" />
+    <NavigationProperty Name="tblEmployeeInformations" Relationship="HanifWorkShop_DBModel.FK_tblEmployeeInformation_tblRoute" FromRole="tblRoute" ToRole="tblEmployeeInformation" />
+  </EntityType>
+  <EntityType Name="tblStore">
+    <Key>
+      <PropertyRef Name="StoreId" />
+    </Key>
+    <Property Name="StoreId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StoreName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="WorkShopId" Type="Int32" />
+    <Property Name="CreatedBy" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="EditedBy" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDateTime" Type="DateTime" Precision="3" />
+    <Property Name="EditedDateTime" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="tblBuyPartsFromSuppliers" Relationship="HanifWorkShop_DBModel.FK_tblBuyPartsFromSupplier_tblStore" FromRole="tblStore" ToRole="tblBuyPartsFromSupplier" />
+    <NavigationProperty Name="tblPartsTransfers" Relationship="HanifWorkShop_DBModel.FK_tblPartsTransfer_tblStore" FromRole="tblStore" ToRole="tblPartsTransfer" />
+  </EntityType>
+  <EntityType Name="tblSupplier">
+    <Key>
+      <PropertyRef Name="SupplierId" />
+    </Key>
+    <Property Name="SupplierId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CompanyName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="ContactNo" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="WorkShopId" Type="Int32" />
+    <Property Name="CreatedBy" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="EditedBy" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDateTime" Type="DateTime" Precision="3" />
+    <Property Name="EditedDateTime" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="tblBuyPartsFromSuppliers" Relationship="HanifWorkShop_DBModel.FK_tblBuyPartsFromSupplierForBus_tblSupplier" FromRole="tblSupplier" ToRole="tblBuyPartsFromSupplier" />
+  </EntityType>
+  <EntityType Name="tblUserActionMapping">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="user_id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="action_id" Type="Int32" Nullable="false" />
+    <Property Name="is_permitted" Type="Int32" />
+    <Property Name="agency_id" Type="Int32" />
+    <Property Name="WorkShopId" Type="Int32" />
+    <Property Name="CreatedBy" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="EditedBy" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDateTime" Type="DateTime" Precision="3" />
+    <Property Name="EditedDateTime" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="AspNetUser" Relationship="HanifWorkShop_DBModel.FK_tblUserActionMapping_AspNetUsers" FromRole="tblUserActionMapping" ToRole="AspNetUser" />
+    <NavigationProperty Name="tblAction" Relationship="HanifWorkShop_DBModel.FK_tblUserActionMapping_tblAction" FromRole="tblUserActionMapping" ToRole="tblAction" />
+  </EntityType>
+  <EntityType Name="tblWorkShopInformation">
+    <Key>
+      <PropertyRef Name="workShop_id" />
+    </Key>
+    <Property Name="workShop_id" Type="Decimal" Nullable="false" Precision="9" Scale="0" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="short_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="reg_Number" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="initial_date" Type="DateTime" Precision="3" />
+    <Property Name="trec_number" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="WorkShopId" Type="Int32" />
+    <Property Name="CreatedBy" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="EditedBy" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDateTime" Type="DateTime" Precision="3" />
+    <Property Name="EditedDateTime" Type="DateTime" Precision="3" />
+    <Property Name="Address" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tblWorkShopInformation1" Relationship="HanifWorkShop_DBModel.FK_tblAgencyInformation_tblAgencyInformation" FromRole="tblWorkShopInformation" ToRole="tblWorkShopInformation1" />
+    <NavigationProperty Name="tblWorkShopInformation2" Relationship="HanifWorkShop_DBModel.FK_tblAgencyInformation_tblAgencyInformation" FromRole="tblWorkShopInformation1" ToRole="tblWorkShopInformation" />
+    <NavigationProperty Name="tblWorkShopUsers" Relationship="HanifWorkShop_DBModel.FK_tblAgencyUser_tblAgencyUser" FromRole="tblWorkShopInformation" ToRole="tblWorkShopUser" />
+  </EntityType>
+  <EntityType Name="tblWorkShopUser">
+    <Key>
+      <PropertyRef Name="workShop_id" />
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="workShop_id" Type="Decimal" Nullable="false" Precision="9" Scale="0" />
+    <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="is_admin" Type="Decimal" Nullable="false" Precision="1" Scale="0" />
+    <Property Name="is_loggedIn" Type="Decimal" Precision="1" Scale="0" />
+    <Property Name="last_logged_time" Type="DateTime" Precision="3" />
+    <Property Name="approve_by" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="approve_date" Type="Decimal" Precision="9" Scale="0" />
+    <Property Name="WorkShopId" Type="Int32" />
+    <Property Name="CreatedBy" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="EditedBy" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDateTime" Type="DateTime" Precision="3" />
+    <Property Name="EditedDateTime" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="AspNetUser" Relationship="HanifWorkShop_DBModel.FK_tblAgencyUser_AspNetUsers" FromRole="tblWorkShopUser" ToRole="AspNetUser" />
+    <NavigationProperty Name="tblWorkShopInformation" Relationship="HanifWorkShop_DBModel.FK_tblAgencyUser_tblAgencyUser" FromRole="tblWorkShopUser" ToRole="tblWorkShopInformation" />
+  </EntityType>
+  <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+    <End Type="HanifWorkShop_DBModel.AspNetUser" Role="AspNetUser" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="HanifWorkShop_DBModel.AspNetUserClaim" Role="AspNetUserClaim" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUser">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserClaim">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+    <End Type="HanifWorkShop_DBModel.AspNetUser" Role="AspNetUser" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="HanifWorkShop_DBModel.AspNetUserLogin" Role="AspNetUserLogin" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUser">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserLogin">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblAgencyUser_AspNetUsers">
+    <End Type="HanifWorkShop_DBModel.AspNetUser" Role="AspNetUser" Multiplicity="1" />
+    <End Type="HanifWorkShop_DBModel.tblWorkShopUser" Role="tblWorkShopUser" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUser">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tblWorkShopUser">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblUserActionMapping_AspNetUsers">
+    <End Type="HanifWorkShop_DBModel.AspNetUser" Role="AspNetUser" Multiplicity="1" />
+    <End Type="HanifWorkShop_DBModel.tblUserActionMapping" Role="tblUserActionMapping" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUser">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tblUserActionMapping">
+        <PropertyRef Name="user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblAction_tblModule">
+    <End Type="HanifWorkShop_DBModel.tblModule" Role="tblModule" Multiplicity="0..1" />
+    <End Type="HanifWorkShop_DBModel.tblAction" Role="tblAction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblModule">
+        <PropertyRef Name="ModuleId" />
+      </Principal>
+      <Dependent Role="tblAction">
+        <PropertyRef Name="ModuleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblUserActionMapping_tblAction">
+    <End Type="HanifWorkShop_DBModel.tblAction" Role="tblAction" Multiplicity="1" />
+    <End Type="HanifWorkShop_DBModel.tblUserActionMapping" Role="tblUserActionMapping" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblAction">
+        <PropertyRef Name="ActionId" />
+      </Principal>
+      <Dependent Role="tblUserActionMapping">
+        <PropertyRef Name="action_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblBusInformation_tblRoute">
+    <End Type="HanifWorkShop_DBModel.tblRoute" Role="tblRoute" Multiplicity="0..1" />
+    <End Type="HanifWorkShop_DBModel.tblBusInformation" Role="tblBusInformation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblRoute">
+        <PropertyRef Name="RouteId" />
+      </Principal>
+      <Dependent Role="tblBusInformation">
+        <PropertyRef Name="RouteId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblBuyPartsFromSupplier_tblStore">
+    <End Type="HanifWorkShop_DBModel.tblStore" Role="tblStore" Multiplicity="0..1" />
+    <End Type="HanifWorkShop_DBModel.tblBuyPartsFromSupplier" Role="tblBuyPartsFromSupplier" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblStore">
+        <PropertyRef Name="StoreId" />
+      </Principal>
+      <Dependent Role="tblBuyPartsFromSupplier">
+        <PropertyRef Name="StoreId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblBuyPartsFromSupplierForBus_tblBuyPartsFromSupplierForBus">
+    <End Type="HanifWorkShop_DBModel.tblPartsInfo" Role="tblPartsInfo" Multiplicity="0..1" />
+    <End Type="HanifWorkShop_DBModel.tblBuyPartsFromSupplier" Role="tblBuyPartsFromSupplier" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblPartsInfo">
+        <PropertyRef Name="PartsId" />
+      </Principal>
+      <Dependent Role="tblBuyPartsFromSupplier">
+        <PropertyRef Name="PartsId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblBuyPartsFromSupplierForBus_tblSupplier">
+    <End Type="HanifWorkShop_DBModel.tblSupplier" Role="tblSupplier" Multiplicity="0..1" />
+    <End Type="HanifWorkShop_DBModel.tblBuyPartsFromSupplier" Role="tblBuyPartsFromSupplier" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblSupplier">
+        <PropertyRef Name="SupplierId" />
+      </Principal>
+      <Dependent Role="tblBuyPartsFromSupplier">
+        <PropertyRef Name="SupplierId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblEmployeeInformation_tblDesignation">
+    <End Type="HanifWorkShop_DBModel.tblDesignation" Role="tblDesignation" Multiplicity="0..1" />
+    <End Type="HanifWorkShop_DBModel.tblEmployeeInformation" Role="tblEmployeeInformation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblDesignation">
+        <PropertyRef Name="DesignationId" />
+      </Principal>
+      <Dependent Role="tblEmployeeInformation">
+        <PropertyRef Name="DesignationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblEmployeeInformation_tblRoute">
+    <End Type="HanifWorkShop_DBModel.tblRoute" Role="tblRoute" Multiplicity="0..1" />
+    <End Type="HanifWorkShop_DBModel.tblEmployeeInformation" Role="tblEmployeeInformation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblRoute">
+        <PropertyRef Name="RouteId" />
+      </Principal>
+      <Dependent Role="tblEmployeeInformation">
+        <PropertyRef Name="RouteId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblPartsTransfer_tblPartsInfo">
+    <End Type="HanifWorkShop_DBModel.tblPartsInfo" Role="tblPartsInfo" Multiplicity="0..1" />
+    <End Type="HanifWorkShop_DBModel.tblPartsTransfer" Role="tblPartsTransfer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblPartsInfo">
+        <PropertyRef Name="PartsId" />
+      </Principal>
+      <Dependent Role="tblPartsTransfer">
+        <PropertyRef Name="PartsId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblPartsTransfer_tblStore">
+    <End Type="HanifWorkShop_DBModel.tblStore" Role="tblStore" Multiplicity="0..1" />
+    <End Type="HanifWorkShop_DBModel.tblPartsTransfer" Role="tblPartsTransfer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblStore">
+        <PropertyRef Name="StoreId" />
+      </Principal>
+      <Dependent Role="tblPartsTransfer">
+        <PropertyRef Name="StoreId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblAgencyInformation_tblAgencyInformation">
+    <End Type="HanifWorkShop_DBModel.tblWorkShopInformation" Role="tblWorkShopInformation" Multiplicity="1" />
+    <End Type="HanifWorkShop_DBModel.tblWorkShopInformation" Role="tblWorkShopInformation1" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="tblWorkShopInformation">
+        <PropertyRef Name="workShop_id" />
+      </Principal>
+      <Dependent Role="tblWorkShopInformation1">
+        <PropertyRef Name="workShop_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblAgencyUser_tblAgencyUser">
+    <End Type="HanifWorkShop_DBModel.tblWorkShopInformation" Role="tblWorkShopInformation" Multiplicity="1" />
+    <End Type="HanifWorkShop_DBModel.tblWorkShopUser" Role="tblWorkShopUser" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblWorkShopInformation">
+        <PropertyRef Name="workShop_id" />
+      </Principal>
+      <Dependent Role="tblWorkShopUser">
+        <PropertyRef Name="workShop_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AspNetUserRoles">
+    <End Type="HanifWorkShop_DBModel.AspNetRole" Role="AspNetRole" Multiplicity="*" />
+    <End Type="HanifWorkShop_DBModel.AspNetUser" Role="AspNetUser" Multiplicity="*" />
+  </Association>
+</Schema>

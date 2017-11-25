@@ -1,0 +1,58 @@
+﻿
+@{
+    Layout = null;
+}
+
+
+
+<div class="row" ng-controller="addModuleController" ng-init="ForLoginSuccess()">
+    <div class="col-md-12">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>Add Module</h2>
+           
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <div class="row">
+                    <form class="form-horizontal" name="addModuleForm">
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="ModuleName">
+                                Module Name <span class="required" style="color: red">*</span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <input type="text" ng-model="Module.ModuleName" id="ModuleName" name="moduleName" class="form-control col-md-7 col-xs-12" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="ModuleOrder">
+                                Module Order <span class="required" style="color: red">*</span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <input type="text" ng-model="Module.ModuleOrder" id="OduleOrder" name="moduleOrder" class="form-control col-md-7 col-xs-12" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="ModuleIcon">
+                                Module Icon <span class="required" style="color: red">*</span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <input type="text" ng-model="Module.ModuleIcon" id="ModuleIcon" name="moduleIcon" class="form-control col-md-7 col-xs-12" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                                <button class="btn btn-primary" type="submit" ng-click="addModule()">Add</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+

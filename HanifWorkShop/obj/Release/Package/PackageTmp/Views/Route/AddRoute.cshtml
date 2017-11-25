@@ -1,0 +1,36 @@
+﻿
+@{
+    Layout = null;
+}
+
+
+
+<div class="row" ng-controller="addRouteController" ng-init="ForLoginSuccess()">
+    <div class="col-md-12">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>Add Route</h2>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <div class="row">
+                    <form class="form-horizontal" name="addRouteForm">
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="RouteName">
+                                Route Name <span class="required" style="color: red">*</span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <input type="text" ng-model="Route.RouteName" id="RouteName" name="RouteName" class="form-control col-md-7 col-xs-12" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                                <button class="btn btn-primary" type="submit" ng-click="addRoute()">Add</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

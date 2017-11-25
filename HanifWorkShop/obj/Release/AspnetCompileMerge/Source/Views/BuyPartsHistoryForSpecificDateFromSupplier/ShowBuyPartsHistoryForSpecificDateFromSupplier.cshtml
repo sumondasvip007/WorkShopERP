@@ -1,0 +1,128 @@
+﻿
+@{
+    Layout = null;
+}
+
+
+<div class="row" ng-controller="ShowBuyPartsHistoryForSpecificDateFromSupplierController" ng-init="ForLoginSuccess()">
+    <div class="col-md-12">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>Buy Parts History From Supplier</h2>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <div class="row">
+                    <form class="form-horizontal" name="ShowBuyPartsHistoryForSpecificDateFromSupplierForm">
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="SupplierId">
+                                Supplier <span class="required" style="color: red">*</span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <select ng-model="Supplier.SupplierId" id="SupplierId" name="SupplierId" class="form-control" ng-options="x.SupplierId as x.CompanyName for x in supplierList" ng-change="SupplierClick()" required>
+                                    <option value="">Select Supplier....</option>
+                                </select>
+                            </div>
+                        </div>
+
+
+                        @*<div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12">
+                                Date <span class="required" style="color: red">*</span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <p class="input-group">
+                                    <input type="text" class="form-control" uib-datepicker-popup ng-model="datetpicker" is-open="popup1.opened"
+                                           datepicker-options="dateOptions" ng-required="true" close-text="Close"
+                                           alt-input-formats="altInputFormats"
+                                           close-on-date-selection="true" readonly />
+                                    <span class="input-group-btn">
+                                        <button type="button" class="btn btn-default" ng-click="open()"><i class="fa fa-calendar"></i></button>
+                                    </span>
+                                </p>
+                            </div>
+                        </div>*@
+
+
+
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12">
+                               From Date <span class="required" style="color: red">*</span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <datepicker date-format="MM/dd/yyyy" selector="form-control">
+                                    <input class="form-control" ng-model="FromDate" placeholder="    Choose a date" readonly required/>
+                                </datepicker>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12">
+                               To Date <span class="required" style="color: red">*</span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <datepicker date-format="MM/dd/yyyy" selector="form-control">
+                                    <input class="form-control" ng-model="ToDate" placeholder="    Choose a date" readonly required />
+                                </datepicker>
+                            </div>
+                        </div>
+
+
+
+
+                        <div class="form-group">
+                            <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                                <button class="btn btn-primary" type="submit" ng-click="SearchBuyPartsHistoryForSpecificDateFromSupplier()">Search</button>
+                                &nbsp; &nbsp;
+                                <input type="submit" class="btn btn-primary" value="Generate Report" ng-show="reportButton" data-ng-click="GenerateReportForSearchResult()" />
+                                &nbsp; &nbsp;
+                                <a id="fbplus_01" class="iframe btn btn-primary" ng-href="/BuyPartsHistoryForSpecificDateFromSupplier/ViewPdfReportForSearchResult/?supplierId={{Supplier.SupplierId}}&fromDate={{FromDate}}&toDate={{ToDate}}" ng-show="reportButton" fancyboxable>View Report</a>
+                            </div>
+                        </div>
+
+                        <table st-table="rowCollection" st-safe-src="BuyPartsList" class="table table-striped table-bordered bootstrap-datatable datatable">
+                            <thead>
+                                <tr>
+                                    <th colspan="7">
+                                        Pages: <select ng-model="itemsByPage" ng-options="item for item in itemsPerPage"></select>
+                                        <input st-search="" style="float: right;" placeholder="global search ..." type="text" />
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <th st-sort="RegistrationNo" style="text-align: center">Registration No</th>
+                                    <th st-sort="PartsName" style="text-align: center">Parts Name</th>
+                                    <th st-sort="Quantity" style="text-align: center">Quantity</th>
+                                    <th st-sort="UnitPrice" style="text-align: center">Unit Price</th>
+                                    <th st-sort="Price" style="text-align: center">Total Price</th>
+                                </tr>
+
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="row in rowCollection">
+                                    <td style="text-align: center">{{row.RegistrationNo}}</td>
+                                    <td style="text-align: center">{{row.PartsName}}</td>
+                                    <td style="text-align: center">{{row.Quantity}}</td>
+                                    <td style="text-align: right">{{row.UnitPrice| number:2}}</td>
+                                    <td style="text-align: right">{{row.Price| number:2}}</td>
+                                </tr>
+                            </tbody>
+
+                            <tr>
+                                <td style="text-align: right" colspan="4"><b>Tota Amount</b></td>
+                                <td style="text-align: right">{{totalAmount| number:2}}</td>
+                            </tr>
+
+                            <tfoot>
+                                <tr>
+                                    <td colspan="7" class="text-center">
+                                        <div st-pagination="" st-items-by-page="itemsByPage" st-displayed-pages="7"></div>
+                                    </td>
+                                </tr>
+                            </tfoot>
+                        </table>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

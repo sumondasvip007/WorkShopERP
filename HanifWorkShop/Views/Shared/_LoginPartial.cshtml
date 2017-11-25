@@ -1,0 +1,57 @@
+﻿@using Microsoft.AspNet.Identity
+@if (Request.IsAuthenticated)
+{
+    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "" }))
+    {
+        @Html.AntiForgeryToken()
+        @*<div class="nav-no-collapse header-nav">
+                <ul class="nav pull-right">
+                    <li class="dropdown" style="margin-top:0px">
+                        <a class="btn dropdown-toggle" href="/#ChangePassword">Logged In User: "@User.Identity.GetUserName()" </a>
+
+                        <a class="btn dropdown-toggle" href="javascript:document.getElementById('logoutForm').submit()"><i class="icon-off"></i>Log off</a>
+                    </li>
+                </ul>
+
+            </div>*@
+
+    <nav>
+        <div class="nav toggle">
+            <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+        </div>
+
+
+        <ul class="nav navbar-nav navbar-right">
+
+           
+            <li class="">
+
+                <a href="javascript:document.getElementById('logoutForm').submit()"><i class="icon-off"></i> "@User.Identity.GetUserName()" | Log off</a>
+
+            </li>
+        </ul>
+    </nav>
+    }
+}
+
+
+else
+{
+    @*<div class="nav-no-collapse header-nav">
+            <ul class="nav pull-right">
+                <li style="margin-top:0px">
+                    <a class="btn dropdown-toggle" href="/#Login">Log in</a>
+                </li>
+            </ul>
+        </div>*@
+
+    <ul class="nav navbar-nav navbar-right">
+        <li class="">
+            <a href="/#Login">Log in</a>
+            @*<a class="btn dropdown-toggle" href="/#Login">Log in</a>*@
+
+        </li>
+    </ul>
+
+}
+

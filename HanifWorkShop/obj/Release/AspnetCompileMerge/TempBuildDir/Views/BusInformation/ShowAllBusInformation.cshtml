@@ -1,0 +1,127 @@
+﻿
+@{
+    Layout = null;
+}
+
+
+<div class="row" ng-controller="showAllBusInformationController" ng-init="ForLoginSuccess()">
+    <div class="col-md-12" ng-show="EditBusInfo">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>Edit Bus Information</h2>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <div class="row">
+                    <form class="form-horizontal" name="editBusInformationForm">
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="RegistrationNo">
+                                Registration No <span class="required" style="color: red">*</span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <input type="text" ng-model="BusInformation.RegistrationNo" id="RegistrationNo" name="RegistrationNo" class="form-control col-md-7 col-xs-12" required>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="ModelNo">
+                                Model No
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <input type="text" ng-model="BusInformation.ModelNo" id="ModelNo" name="ModelNo" class="form-control col-md-7 col-xs-12">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="ChassisNo">
+                                Chassis No
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <input type="text" ng-model="BusInformation.ChassisNo" id="ChassisNo" name="ChassisNo" class="form-control col-md-7 col-xs-12">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="RouteId">
+                                Route <span class="required" style="color: red">*</span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <select ng-model="BusInformation.RouteId" id="RouteId" name="RouteId" class="form-control" ng-options="x.RouteId as x.RouteName for x in RouteList" required>
+                                    <option value="">Select Route....</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                                <button class="btn btn-primary" type="submit" ng-click="updateBusInformation()">Update</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <div class="col-md-12" ng-show="ShowBusList">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>Bus List</h2>
+
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <div class="row">
+
+                    <table st-table="rowCollection" st-safe-src="BusInformationList" class="table table-striped table-bordered bootstrap-datatable datatable">
+                        <thead>
+                            <tr>
+                                <th colspan="5">
+                                    Pages: <select ng-model="itemsByPage" ng-options="item for item in itemsPerPage"></select>
+                                    <input st-search="" style="float: right;" @*class="form-control"*@ placeholder="global search ..." type="text" />
+                                </th>
+                            </tr>
+                            <tr>
+                                <th st-sort="RegistrationNo">Registration No</th>
+                                <th st-sort="ModelNo">Model No</th>
+                                <th st-sort="ChassisNo">Chassis No</th>
+                                <th st-sort="RouteName">Route</th>
+                                <th>Action</th>
+                            </tr>
+
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="row in rowCollection">
+                                <td>{{row.RegistrationNo}}</td>
+                                <td>{{row.ModelNo}}</td>
+                                <td>{{row.ChassisNo}}</td>
+                                <td>{{row.RouteName}}</td>
+                                <td class="center">
+                                    <button type="button" ng-click="EditBusInformation(row)" class="btn btn-sm btn-info">
+                                        <i class="glyphicon glyphicon-edit">
+                                        </i>
+                                    </button>
+                                    <button type="button" ng-click="DeleteDesignation(row.BusInformationId)" class="btn btn-sm btn-danger">
+                                        <i class="glyphicon glyphicon-remove-circle">
+                                        </i>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="5" class="text-center">
+                                    <div st-pagination="" st-items-by-page="itemsByPage" st-displayed-pages="7"></div>
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

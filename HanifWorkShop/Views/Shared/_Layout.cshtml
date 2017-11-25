@@ -1,0 +1,332 @@
+﻿@using HanifWorkShop.Utility
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+
+
+
+    <!-- Bootstrap -->
+    <link href="~/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    @*<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">*@
+    <!-- Font Awesome -->
+    <link href="~/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- NProgress -->
+    <link href="~/vendors/nprogress/nprogress.css" rel="stylesheet">
+    <!-- iCheck -->
+    <link href="~/vendors/iCheck/skins/flat/green.css" rel="stylesheet">
+
+    <!-- bootstrap-progressbar -->
+    <link href="~/vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
+    <!-- JQVMap -->
+    <link href="~/vendors/jqvmap/dist/jqvmap.min.css" rel="stylesheet" />
+    <!-- bootstrap-daterangepicker -->
+    <link href="~/vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
+
+    <!-- Custom Theme Style -->
+    <link href="~/build/css/custom.min.css" rel="stylesheet">
+
+
+    <link href="~/Content/angular-block-ui.css" rel="stylesheet" />
+    <link href="~/Content/jquery.fancybox-plus.css" rel="stylesheet" />
+    <link href="~/Content/jquery.fancybox.css" rel="stylesheet" />
+    <link href="~/Content/ivh-treeview.css" rel="stylesheet" />
+    <link href="~/Content/TreeView.css" rel="stylesheet" />
+    <link href="~/Content/toaster.css" rel="stylesheet" />
+    <link href="~/Content/animate.css" rel="stylesheet" />
+    <link href="~/Content/designAutoComplete.css" rel="stylesheet" />
+    <link href="~/Content/angular-datepicker.css" rel="stylesheet" />
+
+    <link href="~/Content/select.min.css" rel="stylesheet" />
+
+
+
+    <style>
+        .collapesCustom {
+            display: block !important;
+        }
+    </style>
+
+
+    @*@Styles.Render("~/Content/css")*@
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body ng-app="myApp" class="nav-md" ng-controller="DashboardController">
+
+
+    <div class="container body">
+        <div class="main_container">
+
+
+            <div class="top_nav" ng-init="Login()">
+                <div class="nav_menu">
+                    @*<nav>
+                            <div class="nav toggle">
+                                <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+                            </div>
+
+                        <ul class="nav navbar-nav navbar-right">
+                                <li class="">
+                                    <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                       <img src="~/images/img.jpg" alt="">Login
+                                        <span class=" fa fa-angle-down"></span>
+                                        @Html.Partial("_LoginPartial")
+                                    </a>
+
+                                </li>
+                            </ul>
+
+                        </nav>*@
+                    @Html.Partial("_LoginPartial")
+                </div>
+            </div>
+
+
+
+
+            @*<div class="container body">
+                <div class="main_container">*@
+            <div class="col-md-3 left_col">
+                <div class="left_col scroll-view">
+                    <div class="navbar nav_title" style="border: 0;">
+                        <a href="#/Index" class="site_title"><i class="fa fa-paw"></i> <span>WORK SHOP</span></a>
+                    </div>
+
+                    <div class="clearfix"></div>
+
+                    <!-- menu profile quick info -->
+                    @*<div class="profile clearfix">
+                            <div class="profile_pic">
+                                <img src="images/img.jpg" alt="..." class="img-circle profile_img">
+                            </div>
+                            <div class="profile_info">
+                                <span>Welcome,</span>
+                                <h2>John Doe</h2>
+                            </div>
+                        </div>*@
+                    <!-- /menu profile quick info -->
+
+                    <br />
+
+                    <!-- sidebar menu -->
+
+                    <div id="sidebar-menu" class="main_menu_side hidden-print main_menu" ng-controller="DashboardController" ng-hide="menu">
+
+                        @Html.Partial("_Menu")
+
+
+                        @*<div class="menu_section">
+
+                                <h2 style="color: white">MAIN MENU</h2>
+
+                                <ul class="nav side-menu">
+
+                                    <li ng-repeat="row in ModuleList">
+                                        <a ng-click="toggle = !toggle"><i class="{{row.ModuleIcon}}"></i> {{row.ModuleName}} <span ng-class="{'fa fa-chevron-right': !toggle,'fa fa-chevron-down': toggle}"></span></a>
+                                        <ul class="nav child_menu" ng-class="{'collapesCustom' : toggle}">
+
+                                            <li ng-repeat="action in row.action">
+                                                <a href="{{action.ActionUrl}}">
+                                                    {{action.ActionDisplayName}}
+                                                </a>
+                                            </li>
+
+                                        </ul>
+                                    </li>
+
+                                </ul>
+
+                            </div>*@
+
+
+                    </div>
+
+                    <!-- /sidebar menu -->
+                    <!-- /menu footer buttons -->
+                    <div class="sidebar-footer hidden-small">
+                        @*<a data-toggle="tooltip" data-placement="top" title="Settings">
+                                <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+                            </a>
+                            <a data-toggle="tooltip" data-placement="top" title="FullScreen">
+                                <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
+                            </a>
+                            <a data-toggle="tooltip" data-placement="top" title="Lock">
+                                <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
+                            </a>
+                            <a data-toggle="tooltip" data-placement="top" title="Logout" href="#">
+                                <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
+                            </a>*@
+                    </div>
+                    <!-- /menu footer buttons -->
+                </div>
+            </div>
+
+            <!-- top navigation -->
+            @*<div class="top_nav">
+                    <div class="nav_menu">
+                        <nav>
+                            <div class="nav toggle">
+                                <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+                            </div>
+
+                            <ul class="nav navbar-nav navbar-right">
+                                <li class="">
+                                    <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                        <img src="~/images/img.jpg" alt="">John Doe
+                                        <span class=" fa fa-angle-down"></span>
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-usermenu pull-right">
+
+                                        <li><a href="#"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
+                                    </ul>
+                                </li>
+
+
+                            </ul>
+                        </nav>
+                    </div>
+                </div>*@
+            <!-- /top navigation -->
+            <!-- page content -->
+            <div class="right_col" role="main">
+                <toaster-container style="margin-top: 55px;" toaster-options="{'time-out': 3000}"></toaster-container>
+                <ng-view>
+                    @RenderBody()
+                </ng-view>
+
+            </div>
+            <!-- /page content -->
+            <!-- footer content -->
+            <footer>
+                <div class="pull-right">
+                    WORK SHOP by <a href="http://bornomalasystems.com/" style="color: black">Bornomal Systems Ltd</a>
+                </div>
+                <div class="clearfix"></div>
+            </footer>
+            <!-- /footer content -->
+        </div>
+
+    </div>
+
+
+
+
+
+
+
+
+    <script src="~/vendors/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="~/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- FastClick -->
+    <script src="~/vendors/fastclick/lib/fastclick.js"></script>
+    <!-- NProgress -->
+    <script src="~/vendors/nprogress/nprogress.js"></script>
+    <!-- Chart.js -->
+    <script src="~/vendors/Chart.js/dist/Chart.min.js"></script>
+    <!-- gauge.js -->
+    <script src="~/vendors/gauge.js/dist/gauge.min.js"></script>
+    <!-- bootstrap-progressbar -->
+    <script src="~/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+    <!-- iCheck -->
+    <script src="~/vendors/iCheck/icheck.min.js"></script>
+    <!-- Skycons -->
+    <script src="~/vendors/skycons/skycons.js"></script>
+    <!-- Flot -->
+    <script src="~/vendors/Flot/jquery.flot.js"></script>
+    <script src="~/vendors/Flot/jquery.flot.pie.js"></script>
+    <script src="~/vendors/Flot/jquery.flot.time.js"></script>
+    <script src="~/vendors/Flot/jquery.flot.stack.js"></script>
+    <script src="~/vendors/Flot/jquery.flot.resize.js"></script>
+    <!-- Flot plugins -->
+    <script src="~/vendors/flot.orderbars/js/jquery.flot.orderBars.js"></script>
+    <script src="~/vendors/flot-spline/js/jquery.flot.spline.min.js"></script>
+    <script src="~/vendors/flot.curvedlines/curvedLines.js"></script>
+    <!-- DateJS -->
+    <script src="~/vendors/DateJS/build/date.js"></script>
+    <!-- JQVMap -->
+    <script src="~/vendors/jqvmap/dist/jquery.vmap.js"></script>
+    <script src="~/vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script>
+    <script src="~/vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script>
+    <!-- bootstrap-daterangepicker -->
+    <script src="~/vendors/moment/min/moment.min.js"></script>
+    <script src="~/vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
+
+    <!-- Custom Theme Scripts -->
+    <script src="~/build/js/custom.min.js"></script>
+
+
+
+
+
+    <script src="~/Scripts/angular.js"></script>
+    <script src="~/Scripts/angular-route.js"></script>
+    <script src="~/Scripts/angular-animate.js"></script>
+    <script src="~/Scripts/angular-block-ui.js"></script>
+    <script src="~/Scripts/smart-table.js"></script>
+    <script src="~/Scripts/ng-file-upload.js"></script>
+    <script src="~/Scripts/jquery.fancybox-plus.js"></script>
+    <script src="~/Scripts/angular-fancybox-plus.js"></script>
+    <script src="~/Scripts/toaster.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angucomplete-alt/2.4.1/angucomplete-alt.min.js"></script>
+    <script src="~/Scripts/angular-datepicker.js"></script>
+
+    <script src="~/Scripts/select.min.js"></script>
+
+
+    <script src="~/Scripts/angular-ui/ui-bootstrap-tpls.js"></script>
+
+    <script src="~/Scripts/angular-sanitize.js"></script>
+
+
+    <script src="~/Scripts/Area/module.js"></script>
+    <script src="~/Scripts/Area/route.js"></script>
+    <script src="~/Scripts/ivh-treeview.min.js"></script>
+    <script src="~/Scripts/Area/Deshboard/DashboardColtroller.js"></script>
+    <script src="~/Scripts/Area/Module/AddModule.js"></script>
+    <script src="~/Scripts/Area/Module/ShowAllModule.js"></script>
+    <script src="~/Scripts/Area/Action/AddAction.js"></script>
+    <script src="~/Scripts/Area/Action/ShowAllAction.js"></script>
+    <script src="~/Scripts/Area/AspNetUser/AspNetUserController.js"></script>
+    <script src="~/Scripts/Area/UserMenuPermissionController/UserMenuPermissionController.js"></script>
+    <script src="~/Scripts/Area/Designation/addDesignation.js"></script>
+    <script src="~/Scripts/Area/Designation/designationList.js"></script>
+    <script src="~/Scripts/Area/EmployeeInformation/EmployeeImageDirective.js"></script>
+    <script src="~/Scripts/Area/EmployeeInformation/EmployeeImageService.js"></script>
+    <script src="~/Scripts/Area/EmployeeInformation/EmployeeInformation.js"></script>
+    <script src="~/Scripts/Area/Bus Route/addBusRoute.js"></script>
+    <script src="~/Scripts/Area/Bus Route/BusRouteList.js"></script>
+    <script src="~/Scripts/Area/BusInformation/AddBusInformation.js"></script>
+    <script src="~/Scripts/Area/BusInformation/BusInformationList.js"></script>
+    <script src="~/Scripts/Area/EmployeeInformation/viewAllEmployeeInformationForSpecificBusRoute.js"></script>
+    <script src="~/Scripts/Area/BusInformation/ViewBusInformationForSpecificBusRegistrationNo.js"></script>
+    <script src="~/Scripts/Area/Supplier/AddSupplier.js"></script>
+    <script src="~/Scripts/Area/Supplier/SupplierList.js"></script>
+    <script src="~/Scripts/Area/PartsInfo/addPartsInfo.js"></script>
+    <script src="~/Scripts/Area/PartsInfo/PartsInfoList.js"></script>
+    <script src="~/Scripts/Area/PriceForPartsFromSupplier/AddpriceForPartsFromSupplier.js"></script>
+    <script src="~/Scripts/Area/ShowBuyPartsHistoryForSpecificDateFromSupplier/ShowBuyPartsHistoryForSpecificDateFromSupplier.js"></script>
+    <script src="~/Scripts/Area/Store/AddPartsInStore.js"></script>
+    <script src="~/Scripts/Area/Store/addStore.js"></script>
+    <script src="~/Scripts/Area/TotalCostHistoryFromDateToDateForABusRegistrationNo/ViewTotalCostHistoryFromDateToDateForABusRegistrationNo.js"></script>
+    <script src="~/Scripts/Area/BusInfornationListForSpecificBusRoute/ViewBusInfornationListForSpecificBusRoute.js"></script>
+    <script src="~/Scripts/Area/AddPartsInBusRegistrationNoFromStore/AddPartsStoreToBusRegistrationNoServices.js"></script>
+    <script src="~/Scripts/Area/AddPartsInBusRegistrationNoFromStore/AddPartsInBusRegistrationNoFromStore.js"></script>
+    <script src="~/Scripts/Area/PartsStatusInStore/PartsStatusInStore.js"></script>
+
+
+@*@Scripts.Render("~/bundles/jquery")*@
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+
+
+
+
+
+
+</body>
+</html>

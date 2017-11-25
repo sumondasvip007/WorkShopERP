@@ -1,0 +1,231 @@
+﻿
+@{
+    Layout = null;
+}
+
+
+<div class="row" ng-controller="EmployeeInformationController" ng-init="ForLoginSuccess()">
+    <div class="col-md-12" ng-show="EditEmployeeInfo">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>Edit Employee</h2>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                    <div class="row">
+                        <form class="form-horizontal" name="EmployeeInformationEditForm">
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="EmployeeName">
+                                    Name <span class="required" style="color: red">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input type="text" ng-model="Employee.EmployeeName" id="EmployeeName" name="EmployeeName" class="form-control col-md-7 col-xs-12" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="EmployeeEmail">
+                                    Email
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input type="text" ng-model="Employee.EmployeeEmail" id="EmployeeEmail" name="EmployeeEmail" class="form-control col-md-7 col-xs-12">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="EmployeeAddress">
+                                    Address <span class="required" style="color: red">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input type="text" ng-model="Employee.EmployeeAddress" id="EmployeeAddress" name="EmployeeAddress" class="form-control col-md-7 col-xs-12" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="ContactNumber">
+                                    Contact Number <span class="required" style="color: red">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input type="text" ng-model="Employee.ContactNumber" id="ContactNumber" name="ContactNumber" class="form-control col-md-7 col-xs-12" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group" ng-hide="myNidValue">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12">
+
+                                </label>
+                                <div @*style="margin-top: 4px;"*@ class="col-md-6 col-sm-6 col-xs-12">
+                                    <img ng-src="{{b}}" height="130" width="100%" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="EmployeeNidImage">
+                                    NID Image
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input type="file" fileread="myNidFile" onchange="angular.element(this).scope().nidImageChanged(this.files)" class="form-control col-md-7 col-xs-12" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="EmployeeNid">
+                                    Nid
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input type="text" ng-model="Employee.EmployeeNid" id="EmployeeNid" name="EmployeeNid" class="form-control col-md-7 col-xs-12">
+                                </div>
+                            </div>
+
+                            <div class="form-group" ng-hide="myValue">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="EmployeeNid">
+
+                                </label>
+                                <div @*style="margin-top: 4px;"*@ class="col-md-6 col-sm-6 col-xs-12">
+                                    <img ng-src="{{a}}" height="130" width="150"/>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="EmployeeImage">
+                                    Image
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input type="file" fileread="myFile" onchange="angular.element(this).scope().photoChanged(this.files)" class="form-control col-md-7 col-xs-12" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="DesignationId">
+                                    Designation <span class="required" style="color: red">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <select ng-model="Employee.DesignationId" id="DesignationId" name="DesignationId" class="form-control" ng-options="x.DesignationId as x.DesignationName for x in DesignationList" ng-change="SelectDriver(Employee.DesignationId)" required>
+                                        <option value="">Select Designation....</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                                <div class="form-group" ng-hide="myDrivingLicenseValue">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12">
+
+                                    </label>
+                                    <div @*style="margin-top: 4px;"*@ class="col-md-6 col-sm-6 col-xs-12">
+                                        <img ng-src="{{c}}" height="130" width="100%" />
+                                    </div>
+                                </div>
+                                <div class="form-group" ng-hide="drivingLicenseField">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="DrivingLicenseImage">
+                                        Driving License Image
+                                    </label>
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        <input type="file" fileread="myDrivingLicenseFile" onchange="angular.element(this).scope().drivingLicenseImageChanged(this.files)" class="form-control col-md-7 col-xs-12"/>
+                                    </div>
+                                </div>
+
+                           
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="Salary">
+                                    Salary <span class="required" style="color: red">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input type="text" ng-model="Employee.Salary" id="Salary" name="Salary" class="form-control col-md-7 col-xs-12" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="RouteId">
+                                    Route <span class="required" style="color: red">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <select ng-model="Employee.RouteId" id="RouteId" name="RouteId" class="form-control" ng-options="x.RouteId as x.RouteName for x in RouteList" required>
+                                        <option value="">Select Route....</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                                    <button class="btn btn-primary" type="submit" ng-click="UpdateEmployeeInformation()">Update</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+    <div class="col-md-12" ng-show="ShowEmployeeList">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>Employee List</h2>
+
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+            <div class="table-responsive">
+                <div class="row">
+
+                    <table st-table="rowCollection" st-safe-src="EmployeeList" class="table  table-hover table-striped table-bordered bootstrap-datatable datatable">
+                        <thead>
+                            <tr>
+                                <th colspan="12">
+                                    Pages: <select ng-model="itemsByPage" ng-options="item for item in itemsPerPage"></select>
+                                    <input st-search="" @*style="float: right;"*@ @*class="form-control"*@ placeholder="global search ..." type="text" />
+                                </th>
+                            </tr>
+                            <tr>
+                                <th class="center" style="text-align: center;" st-sort="EmployeeName">Name</th>
+                                <th st-sort="EmployeeImage">Image</th>
+                                <th st-sort="EmployeeEmail">Email</th>
+                                <th st-sort="EmployeeAddress">Address</th>
+                                <th st-sort="ContactNumber">Contact No</th>
+                                <th st-sort="EmployeeNid">Nid</th>
+                                <th st-sort="EmployeeNidImage">Nid Image</th>                                
+                                <th st-sort="Salary">Salary</th>
+                                <th st-sort="RouteName">Route</th>
+                                <th st-sort="DesignationName">Designation</th>
+                                <th st-sort="DrivingLicenseImage">Driving License Image</th>
+                                
+                                <th>Action</th>
+                            </tr>
+
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="row in rowCollection">
+                                <td class="center" style="text-align: center;">{{row.EmployeeName}}</td>
+                                <td class="center" style="text-align: center;"><img class="img-circle" src="{{row.EmployeeImage}}" style="border-radius: 50%; width: 70px; height: 70px;" /></td>
+                                <td>{{row.EmployeeEmail}}</td>
+                                <td>{{row.EmployeeAddress}}</td>
+                                <td>{{row.ContactNumber}}</td>
+                                <td>{{row.EmployeeNid}}</td>
+                                <td class="center" style="text-align: center;"><img  src="{{row.EmployeeNidImage}}" style="width: 480px; height: 148px;" /></td>                               
+                                <td>{{row.Salary| number:2}}</td>
+                                <td>{{row.RouteName}}</td>
+                                <td>{{row.DesignationName}}</td>
+                                <td class="center" style="text-align: center;"><img src="{{row.DrivingLicenseImage}}" style="width: 480px; height: 148px;" /></td>
+                                
+                                <td class="center">
+                                    <button type="button" ng-click="EditEmployee(row)" class="btn btn-sm btn-info">
+                                        <i class="glyphicon glyphicon-edit">
+                                        </i>
+                                    </button>
+                                    <button type="button" ng-click="DeleteEmployee(row.EmployeeId)" class="btn btn-sm btn-danger">
+                                        <i class="glyphicon glyphicon-remove-circle">
+                                        </i>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="12" class="text-center">
+                                    <div st-pagination="" st-items-by-page="itemsByPage" st-displayed-pages="7"></div>
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </table>
+
+
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>

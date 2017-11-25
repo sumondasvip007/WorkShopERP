@@ -1,0 +1,390 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="HanifWorkShop_DBModelStoreContainer" CdmEntityContainer="HanifWorkShop_DBEntity">
+    <FunctionImportMapping FunctionImportName="sp_EmployeeInformationForSpecificBusRoute" FunctionName="HanifWorkShop_DBModel.Store.sp_EmployeeInformationForSpecificBusRoute">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="HanifWorkShop_DBModel.sp_EmployeeInformationForSpecificBusRoute_Result">
+          <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+          <ScalarProperty Name="EmployeeName" ColumnName="EmployeeName" />
+          <ScalarProperty Name="EmployeeEmail" ColumnName="EmployeeEmail" />
+          <ScalarProperty Name="EmployeeAddress" ColumnName="EmployeeAddress" />
+          <ScalarProperty Name="EmployeeNid" ColumnName="EmployeeNid" />
+          <ScalarProperty Name="ContactNumber" ColumnName="ContactNumber" />
+          <ScalarProperty Name="Salary" ColumnName="Salary" />
+          <ScalarProperty Name="DesignationId" ColumnName="DesignationId" />
+          <ScalarProperty Name="DesignationName" ColumnName="DesignationName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_BusInfoAndEmployeeInfoForSpecificBusRegistrationNo" FunctionName="HanifWorkShop_DBModel.Store.sp_BusInfoAndEmployeeInfoForSpecificBusRegistrationNo">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="HanifWorkShop_DBModel.sp_BusInfoAndEmployeeInfoForSpecificBusRegistrationNo_Result">
+          <ScalarProperty Name="BusInformationId" ColumnName="BusInformationId" />
+          <ScalarProperty Name="ModelNo" ColumnName="ModelNo" />
+          <ScalarProperty Name="ChassisNo" ColumnName="ChassisNo" />
+          <ScalarProperty Name="RouteName" ColumnName="RouteName" />
+          <ScalarProperty Name="EmployeeName" ColumnName="EmployeeName" />
+          <ScalarProperty Name="ContactNumber" ColumnName="ContactNumber" />
+          <ScalarProperty Name="DesignationName" ColumnName="DesignationName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_BusInfoForSpecificBusRegistrationNo" FunctionName="HanifWorkShop_DBModel.Store.sp_BusInfoForSpecificBusRegistrationNo">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="HanifWorkShop_DBModel.sp_BusInfoForSpecificBusRegistrationNo_Result">
+          <ScalarProperty Name="BusInformationId" ColumnName="BusInformationId" />
+          <ScalarProperty Name="ModelNo" ColumnName="ModelNo" />
+          <ScalarProperty Name="ChassisNo" ColumnName="ChassisNo" />
+          <ScalarProperty Name="RouteName" ColumnName="RouteName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_PartsBuyHistoryForSpecificDateFromSupplier" FunctionName="HanifWorkShop_DBModel.Store.sp_PartsBuyHistoryForSpecificDateFromSupplier">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="HanifWorkShop_DBModel.sp_PartsBuyHistoryForSpecificDateFromSupplier_Result">
+          <ScalarProperty Name="RegistrationNo" ColumnName="RegistrationNo" />
+          <ScalarProperty Name="PartsId" ColumnName="PartsId" />
+          <ScalarProperty Name="PartsName" ColumnName="PartsName" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_BusInformationListForABusRoute" FunctionName="HanifWorkShop_DBModel.Store.sp_BusInformationListForABusRoute">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="HanifWorkShop_DBModel.sp_BusInformationListForABusRoute_Result">
+          <ScalarProperty Name="BusInformationId" ColumnName="BusInformationId" />
+          <ScalarProperty Name="RegistrationNo" ColumnName="RegistrationNo" />
+          <ScalarProperty Name="ModelNo" ColumnName="ModelNo" />
+          <ScalarProperty Name="ChassisNo" ColumnName="ChassisNo" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_PartsBuyHistoryFromDateToDateFromSupplier" FunctionName="HanifWorkShop_DBModel.Store.sp_PartsBuyHistoryFromDateToDateFromSupplier">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="HanifWorkShop_DBModel.sp_PartsBuyHistoryFromDateToDateFromSupplier_Result">
+          <ScalarProperty Name="RegistrationNo" ColumnName="RegistrationNo" />
+          <ScalarProperty Name="PartsId" ColumnName="PartsId" />
+          <ScalarProperty Name="PartsName" ColumnName="PartsName" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_totalCostHistoryFromDateToDateForBusRegistrationNoFullFinal" FunctionName="HanifWorkShop_DBModel.Store.sp_totalCostHistoryFromDateToDateForBusRegistrationNoFullFinal">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="HanifWorkShop_DBModel.sp_totalCostHistoryFromDateToDateForBusRegistrationNoFullFinal_Result">
+          <ScalarProperty Name="SupplierId" ColumnName="SupplierId" />
+          <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+          <ScalarProperty Name="PartsId" ColumnName="PartsId" />
+          <ScalarProperty Name="PartsName" ColumnName="PartsName" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Other" ColumnName="Other" />
+          <ScalarProperty Name="StoreId" ColumnName="StoreId" />
+          <ScalarProperty Name="StoreName" ColumnName="StoreName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="C__MigrationHistory">
+      <EntityTypeMapping TypeName="HanifWorkShop_DBModel.C__MigrationHistory">
+        <MappingFragment StoreEntitySet="__MigrationHistory">
+          <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+          <ScalarProperty Name="Model" ColumnName="Model" />
+          <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
+          <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetRoles">
+      <EntityTypeMapping TypeName="HanifWorkShop_DBModel.AspNetRole">
+        <MappingFragment StoreEntitySet="AspNetRoles">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserClaims">
+      <EntityTypeMapping TypeName="HanifWorkShop_DBModel.AspNetUserClaim">
+        <MappingFragment StoreEntitySet="AspNetUserClaims">
+          <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+          <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserLogins">
+      <EntityTypeMapping TypeName="HanifWorkShop_DBModel.AspNetUserLogin">
+        <MappingFragment StoreEntitySet="AspNetUserLogins">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+          <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUsers">
+      <EntityTypeMapping TypeName="HanifWorkShop_DBModel.AspNetUser">
+        <MappingFragment StoreEntitySet="AspNetUsers">
+          <ScalarProperty Name="UserFullName" ColumnName="UserFullName" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+          <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+          <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+          <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+          <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+          <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+          <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblActions">
+      <EntityTypeMapping TypeName="HanifWorkShop_DBModel.tblAction">
+        <MappingFragment StoreEntitySet="tblAction">
+          <ScalarProperty Name="EditedDateTime" ColumnName="EditedDateTime" />
+          <ScalarProperty Name="CreatedDateTime" ColumnName="CreatedDateTime" />
+          <ScalarProperty Name="EditedBy" ColumnName="EditedBy" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="WorkShopId" ColumnName="WorkShopId" />
+          <ScalarProperty Name="IsView" ColumnName="IsView" />
+          <ScalarProperty Name="IsInMenu" ColumnName="IsInMenu" />
+          <ScalarProperty Name="ModuleId" ColumnName="ModuleId" />
+          <ScalarProperty Name="ActionUrl" ColumnName="ActionUrl" />
+          <ScalarProperty Name="ActionDisplayName" ColumnName="ActionDisplayName" />
+          <ScalarProperty Name="ActionName" ColumnName="ActionName" />
+          <ScalarProperty Name="ActionId" ColumnName="ActionId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblBusInformations">
+      <EntityTypeMapping TypeName="HanifWorkShop_DBModel.tblBusInformation">
+        <MappingFragment StoreEntitySet="tblBusInformation">
+          <ScalarProperty Name="EditedDateTime" ColumnName="EditedDateTime" />
+          <ScalarProperty Name="CreatedDateTime" ColumnName="CreatedDateTime" />
+          <ScalarProperty Name="EditedBy" ColumnName="EditedBy" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="WorkShopId" ColumnName="WorkShopId" />
+          <ScalarProperty Name="RouteId" ColumnName="RouteId" />
+          <ScalarProperty Name="ChassisNo" ColumnName="ChassisNo" />
+          <ScalarProperty Name="ModelNo" ColumnName="ModelNo" />
+          <ScalarProperty Name="RegistrationNo" ColumnName="RegistrationNo" />
+          <ScalarProperty Name="BusInformationId" ColumnName="BusInformationId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblBuyPartsFromSuppliers">
+      <EntityTypeMapping TypeName="HanifWorkShop_DBModel.tblBuyPartsFromSupplier">
+        <MappingFragment StoreEntitySet="tblBuyPartsFromSupplier">
+          <ScalarProperty Name="EditedDateTime" ColumnName="EditedDateTime" />
+          <ScalarProperty Name="CreatedDateTime" ColumnName="CreatedDateTime" />
+          <ScalarProperty Name="EditedBy" ColumnName="EditedBy" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="WorkShopId" ColumnName="WorkShopId" />
+          <ScalarProperty Name="StoreId" ColumnName="StoreId" />
+          <ScalarProperty Name="Other" ColumnName="Other" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="SupplierId" ColumnName="SupplierId" />
+          <ScalarProperty Name="PartsId" ColumnName="PartsId" />
+          <ScalarProperty Name="BuyDate" ColumnName="BuyDate" />
+          <ScalarProperty Name="RegistrationNo" ColumnName="RegistrationNo" />
+          <ScalarProperty Name="BuyId" ColumnName="BuyId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblDesignations">
+      <EntityTypeMapping TypeName="HanifWorkShop_DBModel.tblDesignation">
+        <MappingFragment StoreEntitySet="tblDesignation">
+          <ScalarProperty Name="EditedDateTime" ColumnName="EditedDateTime" />
+          <ScalarProperty Name="CreatedDateTime" ColumnName="CreatedDateTime" />
+          <ScalarProperty Name="EditedBy" ColumnName="EditedBy" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="WorkShopId" ColumnName="WorkShopId" />
+          <ScalarProperty Name="DesignationName" ColumnName="DesignationName" />
+          <ScalarProperty Name="DesignationId" ColumnName="DesignationId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblEmployeeInformations">
+      <EntityTypeMapping TypeName="HanifWorkShop_DBModel.tblEmployeeInformation">
+        <MappingFragment StoreEntitySet="tblEmployeeInformation">
+          <ScalarProperty Name="EditedDateTime" ColumnName="EditedDateTime" />
+          <ScalarProperty Name="CreatedDateTime" ColumnName="CreatedDateTime" />
+          <ScalarProperty Name="EditedBy" ColumnName="EditedBy" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="WorkShopId" ColumnName="WorkShopId" />
+          <ScalarProperty Name="RouteId" ColumnName="RouteId" />
+          <ScalarProperty Name="Salary" ColumnName="Salary" />
+          <ScalarProperty Name="DrivingLicenseImage" ColumnName="DrivingLicenseImage" />
+          <ScalarProperty Name="DesignationId" ColumnName="DesignationId" />
+          <ScalarProperty Name="EmployeeImage" ColumnName="EmployeeImage" />
+          <ScalarProperty Name="EmployeeEmail" ColumnName="EmployeeEmail" />
+          <ScalarProperty Name="EmployeeNidImage" ColumnName="EmployeeNidImage" />
+          <ScalarProperty Name="EmployeeNid" ColumnName="EmployeeNid" />
+          <ScalarProperty Name="ContactNumber" ColumnName="ContactNumber" />
+          <ScalarProperty Name="EmployeeAddress" ColumnName="EmployeeAddress" />
+          <ScalarProperty Name="EmployeeName" ColumnName="EmployeeName" />
+          <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblModules">
+      <EntityTypeMapping TypeName="HanifWorkShop_DBModel.tblModule">
+        <MappingFragment StoreEntitySet="tblModule">
+          <ScalarProperty Name="EditedDateTime" ColumnName="EditedDateTime" />
+          <ScalarProperty Name="CreatedDateTime" ColumnName="CreatedDateTime" />
+          <ScalarProperty Name="EditedBy" ColumnName="EditedBy" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="WorkShopId" ColumnName="WorkShopId" />
+          <ScalarProperty Name="ModuleIcon" ColumnName="ModuleIcon" />
+          <ScalarProperty Name="ModuleOrder" ColumnName="ModuleOrder" />
+          <ScalarProperty Name="ModuleName" ColumnName="ModuleName" />
+          <ScalarProperty Name="ModuleId" ColumnName="ModuleId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblPartsInfoes">
+      <EntityTypeMapping TypeName="HanifWorkShop_DBModel.tblPartsInfo">
+        <MappingFragment StoreEntitySet="tblPartsInfo">
+          <ScalarProperty Name="EditedDateTime" ColumnName="EditedDateTime" />
+          <ScalarProperty Name="CreatedDateTime" ColumnName="CreatedDateTime" />
+          <ScalarProperty Name="EditedBy" ColumnName="EditedBy" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="WorkShopId" ColumnName="WorkShopId" />
+          <ScalarProperty Name="BasePrice" ColumnName="BasePrice" />
+          <ScalarProperty Name="PartsName" ColumnName="PartsName" />
+          <ScalarProperty Name="PartsId" ColumnName="PartsId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblPartsTransfers">
+      <EntityTypeMapping TypeName="HanifWorkShop_DBModel.tblPartsTransfer">
+        <MappingFragment StoreEntitySet="tblPartsTransfer">
+          <ScalarProperty Name="EditedDateTime" ColumnName="EditedDateTime" />
+          <ScalarProperty Name="CreatedDateTime" ColumnName="CreatedDateTime" />
+          <ScalarProperty Name="EditedBy" ColumnName="EditedBy" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="WorkShopId" ColumnName="WorkShopId" />
+          <ScalarProperty Name="isOut" ColumnName="isOut" />
+          <ScalarProperty Name="isIn" ColumnName="isIn" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="PartsId" ColumnName="PartsId" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="StoreId" ColumnName="StoreId" />
+          <ScalarProperty Name="PartsTransferId" ColumnName="PartsTransferId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblRoutes">
+      <EntityTypeMapping TypeName="HanifWorkShop_DBModel.tblRoute">
+        <MappingFragment StoreEntitySet="tblRoute">
+          <ScalarProperty Name="EditedDateTime" ColumnName="EditedDateTime" />
+          <ScalarProperty Name="CreatedDateTime" ColumnName="CreatedDateTime" />
+          <ScalarProperty Name="EditedBy" ColumnName="EditedBy" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="WorkShopId" ColumnName="WorkShopId" />
+          <ScalarProperty Name="RouteName" ColumnName="RouteName" />
+          <ScalarProperty Name="RouteId" ColumnName="RouteId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblStores">
+      <EntityTypeMapping TypeName="HanifWorkShop_DBModel.tblStore">
+        <MappingFragment StoreEntitySet="tblStore">
+          <ScalarProperty Name="EditedDateTime" ColumnName="EditedDateTime" />
+          <ScalarProperty Name="CreatedDateTime" ColumnName="CreatedDateTime" />
+          <ScalarProperty Name="EditedBy" ColumnName="EditedBy" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="WorkShopId" ColumnName="WorkShopId" />
+          <ScalarProperty Name="StoreName" ColumnName="StoreName" />
+          <ScalarProperty Name="StoreId" ColumnName="StoreId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblSuppliers">
+      <EntityTypeMapping TypeName="HanifWorkShop_DBModel.tblSupplier">
+        <MappingFragment StoreEntitySet="tblSupplier">
+          <ScalarProperty Name="EditedDateTime" ColumnName="EditedDateTime" />
+          <ScalarProperty Name="CreatedDateTime" ColumnName="CreatedDateTime" />
+          <ScalarProperty Name="EditedBy" ColumnName="EditedBy" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="WorkShopId" ColumnName="WorkShopId" />
+          <ScalarProperty Name="ContactNo" ColumnName="ContactNo" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+          <ScalarProperty Name="SupplierId" ColumnName="SupplierId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblUserActionMappings">
+      <EntityTypeMapping TypeName="HanifWorkShop_DBModel.tblUserActionMapping">
+        <MappingFragment StoreEntitySet="tblUserActionMapping">
+          <ScalarProperty Name="EditedDateTime" ColumnName="EditedDateTime" />
+          <ScalarProperty Name="CreatedDateTime" ColumnName="CreatedDateTime" />
+          <ScalarProperty Name="EditedBy" ColumnName="EditedBy" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="WorkShopId" ColumnName="WorkShopId" />
+          <ScalarProperty Name="agency_id" ColumnName="agency_id" />
+          <ScalarProperty Name="is_permitted" ColumnName="is_permitted" />
+          <ScalarProperty Name="action_id" ColumnName="action_id" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblWorkShopInformations">
+      <EntityTypeMapping TypeName="HanifWorkShop_DBModel.tblWorkShopInformation">
+        <MappingFragment StoreEntitySet="tblWorkShopInformation">
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="EditedDateTime" ColumnName="EditedDateTime" />
+          <ScalarProperty Name="CreatedDateTime" ColumnName="CreatedDateTime" />
+          <ScalarProperty Name="EditedBy" ColumnName="EditedBy" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="WorkShopId" ColumnName="WorkShopId" />
+          <ScalarProperty Name="trec_number" ColumnName="trec_number" />
+          <ScalarProperty Name="initial_date" ColumnName="initial_date" />
+          <ScalarProperty Name="reg_Number" ColumnName="reg_Number" />
+          <ScalarProperty Name="short_name" ColumnName="short_name" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="workShop_id" ColumnName="workShop_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblWorkShopUsers">
+      <EntityTypeMapping TypeName="HanifWorkShop_DBModel.tblWorkShopUser">
+        <MappingFragment StoreEntitySet="tblWorkShopUser">
+          <ScalarProperty Name="EditedDateTime" ColumnName="EditedDateTime" />
+          <ScalarProperty Name="CreatedDateTime" ColumnName="CreatedDateTime" />
+          <ScalarProperty Name="EditedBy" ColumnName="EditedBy" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="WorkShopId" ColumnName="WorkShopId" />
+          <ScalarProperty Name="approve_date" ColumnName="approve_date" />
+          <ScalarProperty Name="approve_by" ColumnName="approve_by" />
+          <ScalarProperty Name="last_logged_time" ColumnName="last_logged_time" />
+          <ScalarProperty Name="is_loggedIn" ColumnName="is_loggedIn" />
+          <ScalarProperty Name="is_admin" ColumnName="is_admin" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="workShop_id" ColumnName="workShop_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="AspNetUserRoles" TypeName="HanifWorkShop_DBModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+      <EndProperty Name="AspNetUser">
+        <ScalarProperty Name="Id" ColumnName="UserId" />
+      </EndProperty>
+      <EndProperty Name="AspNetRole">
+        <ScalarProperty Name="Id" ColumnName="RoleId" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

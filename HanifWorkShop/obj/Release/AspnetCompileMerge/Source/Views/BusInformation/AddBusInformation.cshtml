@@ -1,0 +1,64 @@
+﻿
+@{
+    Layout = null;
+}
+
+<div class="row" ng-controller="AddBusInformationController" ng-init="ForLoginSuccess()">
+    <div class="col-md-12">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>Add Bus Information</h2>
+                <div class="clearfix"></div>
+            </div> 
+            <div class="x_content">
+                <div class="row">
+                    <form class="form-horizontal" name="addBusInformationForm">
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="RegistrationNo">
+                                Registration No <span class="required" style="color: red">*</span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <input type="text" ng-model="BusInformation.RegistrationNo" id="RegistrationNo" name="RegistrationNo" class="form-control col-md-7 col-xs-12" required>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="ModelNo">
+                                Model No 
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <input type="text" ng-model="BusInformation.ModelNo" id="ModelNo" name="ModelNo" class="form-control col-md-7 col-xs-12">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="ChassisNo">
+                                Chassis No
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <input type="text" ng-model="BusInformation.ChassisNo" id="ChassisNo" name="ChassisNo" class="form-control col-md-7 col-xs-12">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="RouteId">
+                                Route <span class="required" style="color: red">*</span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <select ng-model="BusInformation.RouteId" id="RouteId" name="RouteId" class="form-control" ng-options="x.RouteId as x.RouteName for x in RouteList" required>
+                                    <option value="">Select Route....</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                                <button class="btn btn-primary" type="submit" ng-click="addBusInformation()">Add</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,54 @@
+﻿@using HanifWorkShop.Utility
+
+
+
+@if (Request.IsAuthenticated && !SessionManger.IsSessionNull(Session))
+{
+
+
+    @Html.AntiForgeryToken()
+
+    <div class="menu_section" ng-init="init()">
+
+        <h2 style="color: white; margin-left: 25%">MAIN MENU</h2>
+
+        <ul class="nav side-menu">
+
+            <li ng-repeat="row in ModuleList">
+                <a ng-click="toggle = !toggle"><i class="{{row.ModuleIcon}}"></i> {{row.ModuleName}} <span ng-class="{'fa fa-chevron-right': !toggle,'fa fa-chevron-down': toggle}"></span></a>
+                <ul class="nav child_menu" ng-class="{'collapesCustom' : toggle}">
+
+                    <li ng-repeat="action in row.action">
+                        <a href="{{action.ActionUrl}}">
+                            {{action.ActionDisplayName}}
+                        </a>
+                    </li>
+
+                </ul>
+            </li>
+
+        </ul>
+
+    </div>
+
+
+    @*<script type="text/javascript">
+            $(document).ready(function () {
+                $('.dropmenu').click(function (e) {
+
+                    e.preventDefault();
+
+                    $(this).parent().find('ul').slideToggle();
+
+                });
+            });
+        </script>*@
+
+}
+else
+{
+
+}
+
+
+

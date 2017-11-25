@@ -1,0 +1,308 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="HeavenOverseasLtd_DBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="HeavenOverseasLtd_DBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="C__MigrationHistory" EntityType="HeavenOverseasLtd_DBModel.C__MigrationHistory" />
+    <EntitySet Name="AspNetRoles" EntityType="HeavenOverseasLtd_DBModel.AspNetRole" />
+    <EntitySet Name="AspNetUserClaims" EntityType="HeavenOverseasLtd_DBModel.AspNetUserClaim" />
+    <EntitySet Name="AspNetUserLogins" EntityType="HeavenOverseasLtd_DBModel.AspNetUserLogin" />
+    <EntitySet Name="AspNetUsers" EntityType="HeavenOverseasLtd_DBModel.AspNetUser" />
+    <EntitySet Name="tblActions" EntityType="HeavenOverseasLtd_DBModel.tblAction" />
+    <EntitySet Name="tblAgencyInformations" EntityType="HeavenOverseasLtd_DBModel.tblAgencyInformation" />
+    <EntitySet Name="tblAgencyUsers" EntityType="HeavenOverseasLtd_DBModel.tblAgencyUser" />
+    <EntitySet Name="tblModules" EntityType="HeavenOverseasLtd_DBModel.tblModule" />
+    <EntitySet Name="tblUserActionMappings" EntityType="HeavenOverseasLtd_DBModel.tblUserActionMapping" />
+    <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="HeavenOverseasLtd_DBModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUser" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserClaim" EntitySet="AspNetUserClaims" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="HeavenOverseasLtd_DBModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUser" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserLogin" EntitySet="AspNetUserLogins" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblAgencyUser_AspNetUsers" Association="HeavenOverseasLtd_DBModel.FK_tblAgencyUser_AspNetUsers">
+      <End Role="AspNetUser" EntitySet="AspNetUsers" />
+      <End Role="tblAgencyUser" EntitySet="tblAgencyUsers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblUserActionMapping_AspNetUsers" Association="HeavenOverseasLtd_DBModel.FK_tblUserActionMapping_AspNetUsers">
+      <End Role="AspNetUser" EntitySet="AspNetUsers" />
+      <End Role="tblUserActionMapping" EntitySet="tblUserActionMappings" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblAction_tblModule" Association="HeavenOverseasLtd_DBModel.FK_tblAction_tblModule">
+      <End Role="tblModule" EntitySet="tblModules" />
+      <End Role="tblAction" EntitySet="tblActions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblUserActionMapping_tblAction" Association="HeavenOverseasLtd_DBModel.FK_tblUserActionMapping_tblAction">
+      <End Role="tblAction" EntitySet="tblActions" />
+      <End Role="tblUserActionMapping" EntitySet="tblUserActionMappings" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblAgencyInformation_tblAgencyInformation" Association="HeavenOverseasLtd_DBModel.FK_tblAgencyInformation_tblAgencyInformation">
+      <End Role="tblAgencyInformation" EntitySet="tblAgencyInformations" />
+      <End Role="tblAgencyInformation1" EntitySet="tblAgencyInformations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblAgencyUser_tblAgencyUser" Association="HeavenOverseasLtd_DBModel.FK_tblAgencyUser_tblAgencyUser">
+      <End Role="tblAgencyInformation" EntitySet="tblAgencyInformations" />
+      <End Role="tblAgencyUser" EntitySet="tblAgencyUsers" />
+    </AssociationSet>
+    <AssociationSet Name="AspNetUserRoles" Association="HeavenOverseasLtd_DBModel.AspNetUserRoles">
+      <End Role="AspNetRole" EntitySet="AspNetRoles" />
+      <End Role="AspNetUser" EntitySet="AspNetUsers" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="C__MigrationHistory">
+    <Key>
+      <PropertyRef Name="MigrationId" />
+      <PropertyRef Name="ContextKey" />
+    </Key>
+    <Property Name="MigrationId" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="ContextKey" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="Model" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+    <Property Name="ProductVersion" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="AspNetRole">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AspNetUsers" Relationship="HeavenOverseasLtd_DBModel.AspNetUserRoles" FromRole="AspNetRole" ToRole="AspNetUser" />
+  </EntityType>
+  <EntityType Name="AspNetUserClaim">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AspNetUser" Relationship="HeavenOverseasLtd_DBModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUserClaim" ToRole="AspNetUser" />
+  </EntityType>
+  <EntityType Name="AspNetUserLogin">
+    <Key>
+      <PropertyRef Name="LoginProvider" />
+      <PropertyRef Name="ProviderKey" />
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="LoginProvider" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="ProviderKey" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AspNetUser" Relationship="HeavenOverseasLtd_DBModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogin" ToRole="AspNetUser" />
+  </EntityType>
+  <EntityType Name="AspNetUser">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+    <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+    <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+    <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+    <Property Name="UserName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="UserFullName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AspNetUserClaims" Relationship="HeavenOverseasLtd_DBModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUser" ToRole="AspNetUserClaim" />
+    <NavigationProperty Name="AspNetUserLogins" Relationship="HeavenOverseasLtd_DBModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUser" ToRole="AspNetUserLogin" />
+    <NavigationProperty Name="tblAgencyUsers" Relationship="HeavenOverseasLtd_DBModel.FK_tblAgencyUser_AspNetUsers" FromRole="AspNetUser" ToRole="tblAgencyUser" />
+    <NavigationProperty Name="tblUserActionMappings" Relationship="HeavenOverseasLtd_DBModel.FK_tblUserActionMapping_AspNetUsers" FromRole="AspNetUser" ToRole="tblUserActionMapping" />
+    <NavigationProperty Name="AspNetRoles" Relationship="HeavenOverseasLtd_DBModel.AspNetUserRoles" FromRole="AspNetUser" ToRole="AspNetRole" />
+  </EntityType>
+  <EntityType Name="tblAction">
+    <Key>
+      <PropertyRef Name="ActionId" />
+    </Key>
+    <Property Name="ActionId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ActionName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="ActionDisplayName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="ActionUrl" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="ModuleId" Type="Int32" />
+    <Property Name="IsInMenu" Type="Boolean" />
+    <Property Name="IsView" Type="Boolean" />
+    <Property Name="AgencyId" Type="Int32" />
+    <Property Name="CreatedBy" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="EditedBy" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDateTime" Type="DateTime" Precision="3" />
+    <Property Name="EditedDateTime" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="tblModule" Relationship="HeavenOverseasLtd_DBModel.FK_tblAction_tblModule" FromRole="tblAction" ToRole="tblModule" />
+    <NavigationProperty Name="tblUserActionMappings" Relationship="HeavenOverseasLtd_DBModel.FK_tblUserActionMapping_tblAction" FromRole="tblAction" ToRole="tblUserActionMapping" />
+  </EntityType>
+  <EntityType Name="tblAgencyInformation">
+    <Key>
+      <PropertyRef Name="agency_id" />
+    </Key>
+    <Property Name="agency_id" Type="Decimal" Nullable="false" Precision="9" Scale="0" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="short_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="reg_Number" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="initial_date" Type="DateTime" Precision="3" />
+    <Property Name="trec_number" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="AgencyId" Type="Int32" />
+    <Property Name="CreatedBy" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="EditedBy" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDateTime" Type="DateTime" Precision="3" />
+    <Property Name="EditedDateTime" Type="DateTime" Precision="3" />
+    <Property Name="Address" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tblAgencyInformation1" Relationship="HeavenOverseasLtd_DBModel.FK_tblAgencyInformation_tblAgencyInformation" FromRole="tblAgencyInformation" ToRole="tblAgencyInformation1" />
+    <NavigationProperty Name="tblAgencyInformation2" Relationship="HeavenOverseasLtd_DBModel.FK_tblAgencyInformation_tblAgencyInformation" FromRole="tblAgencyInformation1" ToRole="tblAgencyInformation" />
+    <NavigationProperty Name="tblAgencyUsers" Relationship="HeavenOverseasLtd_DBModel.FK_tblAgencyUser_tblAgencyUser" FromRole="tblAgencyInformation" ToRole="tblAgencyUser" />
+  </EntityType>
+  <EntityType Name="tblAgencyUser">
+    <Key>
+      <PropertyRef Name="agency_id" />
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="agency_id" Type="Decimal" Nullable="false" Precision="9" Scale="0" />
+    <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="is_admin" Type="Decimal" Nullable="false" Precision="1" Scale="0" />
+    <Property Name="is_loggedIn" Type="Decimal" Precision="1" Scale="0" />
+    <Property Name="last_logged_time" Type="DateTime" Precision="3" />
+    <Property Name="approve_by" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="approve_date" Type="Decimal" Precision="9" Scale="0" />
+    <Property Name="AgencyId" Type="Int32" />
+    <Property Name="CreatedBy" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="EditedBy" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDateTime" Type="DateTime" Precision="3" />
+    <Property Name="EditedDateTime" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="AspNetUser" Relationship="HeavenOverseasLtd_DBModel.FK_tblAgencyUser_AspNetUsers" FromRole="tblAgencyUser" ToRole="AspNetUser" />
+    <NavigationProperty Name="tblAgencyInformation" Relationship="HeavenOverseasLtd_DBModel.FK_tblAgencyUser_tblAgencyUser" FromRole="tblAgencyUser" ToRole="tblAgencyInformation" />
+  </EntityType>
+  <EntityType Name="tblModule">
+    <Key>
+      <PropertyRef Name="ModuleId" />
+    </Key>
+    <Property Name="ModuleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ModuleName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="ModuleOrder" Type="Int32" />
+    <Property Name="ModuleIcon" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="AgencyId" Type="Int32" />
+    <Property Name="CreatedBy" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="EditedBy" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDateTime" Type="DateTime" Precision="3" />
+    <Property Name="EditedDateTime" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="tblActions" Relationship="HeavenOverseasLtd_DBModel.FK_tblAction_tblModule" FromRole="tblModule" ToRole="tblAction" />
+  </EntityType>
+  <EntityType Name="tblUserActionMapping">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="user_id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="action_id" Type="Int32" Nullable="false" />
+    <Property Name="is_permitted" Type="Int32" />
+    <Property Name="agency_id" Type="Int32" />
+    <Property Name="AgencyId" Type="Int32" />
+    <Property Name="CreatedBy" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="EditedBy" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDateTime" Type="DateTime" Precision="3" />
+    <Property Name="EditedDateTime" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="AspNetUser" Relationship="HeavenOverseasLtd_DBModel.FK_tblUserActionMapping_AspNetUsers" FromRole="tblUserActionMapping" ToRole="AspNetUser" />
+    <NavigationProperty Name="tblAction" Relationship="HeavenOverseasLtd_DBModel.FK_tblUserActionMapping_tblAction" FromRole="tblUserActionMapping" ToRole="tblAction" />
+  </EntityType>
+  <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+    <End Type="HeavenOverseasLtd_DBModel.AspNetUser" Role="AspNetUser" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="HeavenOverseasLtd_DBModel.AspNetUserClaim" Role="AspNetUserClaim" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUser">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserClaim">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+    <End Type="HeavenOverseasLtd_DBModel.AspNetUser" Role="AspNetUser" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="HeavenOverseasLtd_DBModel.AspNetUserLogin" Role="AspNetUserLogin" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUser">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserLogin">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblAgencyUser_AspNetUsers">
+    <End Type="HeavenOverseasLtd_DBModel.AspNetUser" Role="AspNetUser" Multiplicity="1" />
+    <End Type="HeavenOverseasLtd_DBModel.tblAgencyUser" Role="tblAgencyUser" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUser">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tblAgencyUser">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblUserActionMapping_AspNetUsers">
+    <End Type="HeavenOverseasLtd_DBModel.AspNetUser" Role="AspNetUser" Multiplicity="1" />
+    <End Type="HeavenOverseasLtd_DBModel.tblUserActionMapping" Role="tblUserActionMapping" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUser">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tblUserActionMapping">
+        <PropertyRef Name="user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblAction_tblModule">
+    <End Type="HeavenOverseasLtd_DBModel.tblModule" Role="tblModule" Multiplicity="0..1" />
+    <End Type="HeavenOverseasLtd_DBModel.tblAction" Role="tblAction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblModule">
+        <PropertyRef Name="ModuleId" />
+      </Principal>
+      <Dependent Role="tblAction">
+        <PropertyRef Name="ModuleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblUserActionMapping_tblAction">
+    <End Type="HeavenOverseasLtd_DBModel.tblAction" Role="tblAction" Multiplicity="1" />
+    <End Type="HeavenOverseasLtd_DBModel.tblUserActionMapping" Role="tblUserActionMapping" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblAction">
+        <PropertyRef Name="ActionId" />
+      </Principal>
+      <Dependent Role="tblUserActionMapping">
+        <PropertyRef Name="action_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblAgencyInformation_tblAgencyInformation">
+    <End Type="HeavenOverseasLtd_DBModel.tblAgencyInformation" Role="tblAgencyInformation" Multiplicity="1" />
+    <End Type="HeavenOverseasLtd_DBModel.tblAgencyInformation" Role="tblAgencyInformation1" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="tblAgencyInformation">
+        <PropertyRef Name="agency_id" />
+      </Principal>
+      <Dependent Role="tblAgencyInformation1">
+        <PropertyRef Name="agency_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblAgencyUser_tblAgencyUser">
+    <End Type="HeavenOverseasLtd_DBModel.tblAgencyInformation" Role="tblAgencyInformation" Multiplicity="1" />
+    <End Type="HeavenOverseasLtd_DBModel.tblAgencyUser" Role="tblAgencyUser" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblAgencyInformation">
+        <PropertyRef Name="agency_id" />
+      </Principal>
+      <Dependent Role="tblAgencyUser">
+        <PropertyRef Name="agency_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AspNetUserRoles">
+    <End Type="HeavenOverseasLtd_DBModel.AspNetRole" Role="AspNetRole" Multiplicity="*" />
+    <End Type="HeavenOverseasLtd_DBModel.AspNetUser" Role="AspNetUser" Multiplicity="*" />
+  </Association>
+</Schema>

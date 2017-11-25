@@ -1,0 +1,629 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="HanifWorkShop_DBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="__MigrationHistory">
+    <Key>
+      <PropertyRef Name="MigrationId" />
+      <PropertyRef Name="ContextKey" />
+    </Key>
+    <Property Name="MigrationId" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="ContextKey" Type="nvarchar" MaxLength="300" Nullable="false" />
+    <Property Name="Model" Type="varbinary(max)" Nullable="false" />
+    <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetRoles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUserClaims">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="ClaimType" Type="nvarchar(max)" />
+    <Property Name="ClaimValue" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="AspNetUserLogins">
+    <Key>
+      <PropertyRef Name="LoginProvider" />
+      <PropertyRef Name="ProviderKey" />
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="LoginProvider" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="ProviderKey" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUserRoles">
+    <Key>
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="RoleId" Type="nvarchar" MaxLength="128" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUsers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="256" />
+    <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+    <Property Name="PasswordHash" Type="nvarchar(max)" />
+    <Property Name="SecurityStamp" Type="nvarchar(max)" />
+    <Property Name="PhoneNumber" Type="nvarchar(max)" />
+    <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+    <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+    <Property Name="LockoutEndDateUtc" Type="datetime" />
+    <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+    <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+    <Property Name="UserFullName" Type="nvarchar" MaxLength="256" />
+  </EntityType>
+  <EntityType Name="tblAction">
+    <Key>
+      <PropertyRef Name="ActionId" />
+    </Key>
+    <Property Name="ActionId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ActionName" Type="nvarchar" MaxLength="150" />
+    <Property Name="ActionDisplayName" Type="nvarchar" MaxLength="150" />
+    <Property Name="ActionUrl" Type="nvarchar" MaxLength="150" />
+    <Property Name="ModuleId" Type="int" />
+    <Property Name="IsInMenu" Type="bit" />
+    <Property Name="IsView" Type="bit" />
+    <Property Name="WorkShopId" Type="int" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="150" />
+    <Property Name="EditedBy" Type="nvarchar" MaxLength="150" />
+    <Property Name="CreatedDateTime" Type="datetime" />
+    <Property Name="EditedDateTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tblBusInformation">
+    <Key>
+      <PropertyRef Name="BusInformationId" />
+    </Key>
+    <Property Name="BusInformationId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RegistrationNo" Type="nvarchar" MaxLength="100" />
+    <Property Name="ModelNo" Type="nvarchar" MaxLength="100" />
+    <Property Name="ChassisNo" Type="nvarchar" MaxLength="100" />
+    <Property Name="RouteId" Type="int" />
+    <Property Name="WorkShopId" Type="int" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="128" />
+    <Property Name="EditedBy" Type="nvarchar" MaxLength="128" />
+    <Property Name="CreatedDateTime" Type="datetime" />
+    <Property Name="EditedDateTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tblBuyPartsFromSupplier">
+    <Key>
+      <PropertyRef Name="BuyId" />
+    </Key>
+    <Property Name="BuyId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RegistrationNo" Type="nvarchar" MaxLength="150" />
+    <Property Name="BuyDate" Type="datetime" />
+    <Property Name="PartsId" Type="int" />
+    <Property Name="SupplierId" Type="int" />
+    <Property Name="Quantity" Type="int" />
+    <Property Name="UnitPrice" Type="int" />
+    <Property Name="Price" Type="int" />
+    <Property Name="Other" Type="nvarchar" MaxLength="150" />
+    <Property Name="StoreId" Type="int" />
+    <Property Name="WorkShopId" Type="int" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="150" />
+    <Property Name="EditedBy" Type="nvarchar" MaxLength="150" />
+    <Property Name="CreatedDateTime" Type="datetime" />
+    <Property Name="EditedDateTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tblDesignation">
+    <Key>
+      <PropertyRef Name="DesignationId" />
+    </Key>
+    <Property Name="DesignationId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DesignationName" Type="nvarchar" MaxLength="150" />
+    <Property Name="WorkShopId" Type="int" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="128" />
+    <Property Name="EditedBy" Type="nvarchar" MaxLength="128" />
+    <Property Name="CreatedDateTime" Type="datetime" />
+    <Property Name="EditedDateTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tblEmployeeInformation">
+    <Key>
+      <PropertyRef Name="EmployeeId" />
+    </Key>
+    <Property Name="EmployeeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmployeeName" Type="nvarchar" MaxLength="150" />
+    <Property Name="EmployeeAddress" Type="nvarchar" MaxLength="300" />
+    <Property Name="ContactNumber" Type="nvarchar" MaxLength="100" />
+    <Property Name="EmployeeNid" Type="nvarchar" MaxLength="150" />
+    <Property Name="EmployeeNidImage" Type="nvarchar(max)" />
+    <Property Name="EmployeeEmail" Type="nvarchar" MaxLength="150" />
+    <Property Name="EmployeeImage" Type="nvarchar(max)" />
+    <Property Name="DesignationId" Type="int" />
+    <Property Name="DrivingLicenseImage" Type="nvarchar(max)" />
+    <Property Name="Salary" Type="int" />
+    <Property Name="RouteId" Type="int" />
+    <Property Name="WorkShopId" Type="int" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="128" />
+    <Property Name="EditedBy" Type="nvarchar" MaxLength="128" />
+    <Property Name="CreatedDateTime" Type="datetime" />
+    <Property Name="EditedDateTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tblModule">
+    <Key>
+      <PropertyRef Name="ModuleId" />
+    </Key>
+    <Property Name="ModuleId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ModuleName" Type="nvarchar" MaxLength="150" />
+    <Property Name="ModuleOrder" Type="int" />
+    <Property Name="ModuleIcon" Type="nvarchar" MaxLength="150" />
+    <Property Name="WorkShopId" Type="int" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="150" />
+    <Property Name="EditedBy" Type="nvarchar" MaxLength="150" />
+    <Property Name="CreatedDateTime" Type="datetime" />
+    <Property Name="EditedDateTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tblPartsInfo">
+    <Key>
+      <PropertyRef Name="PartsId" />
+    </Key>
+    <Property Name="PartsId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PartsName" Type="nvarchar" MaxLength="250" />
+    <Property Name="BasePrice" Type="int" />
+    <Property Name="WorkShopId" Type="int" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="150" />
+    <Property Name="EditedBy" Type="nvarchar" MaxLength="150" />
+    <Property Name="CreatedDateTime" Type="datetime" />
+    <Property Name="EditedDateTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tblPartsTransfer">
+    <Key>
+      <PropertyRef Name="PartsTransferId" />
+    </Key>
+    <Property Name="PartsTransferId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="StoreId" Type="int" />
+    <Property Name="Date" Type="datetime" />
+    <Property Name="PartsId" Type="int" />
+    <Property Name="Quantity" Type="int" />
+    <Property Name="UnitPrice" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Price" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="isIn" Type="bit" />
+    <Property Name="isOut" Type="bit" />
+    <Property Name="WorkShopId" Type="int" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="150" />
+    <Property Name="EditedBy" Type="nvarchar" MaxLength="150" />
+    <Property Name="CreatedDateTime" Type="datetime" />
+    <Property Name="EditedDateTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tblRoute">
+    <Key>
+      <PropertyRef Name="RouteId" />
+    </Key>
+    <Property Name="RouteId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RouteName" Type="nvarchar" MaxLength="150" />
+    <Property Name="WorkShopId" Type="int" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="150" />
+    <Property Name="EditedBy" Type="nvarchar" MaxLength="150" />
+    <Property Name="CreatedDateTime" Type="datetime" />
+    <Property Name="EditedDateTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tblStore">
+    <Key>
+      <PropertyRef Name="StoreId" />
+    </Key>
+    <Property Name="StoreId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="StoreName" Type="nvarchar" MaxLength="250" />
+    <Property Name="WorkShopId" Type="int" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="150" />
+    <Property Name="EditedBy" Type="nvarchar" MaxLength="150" />
+    <Property Name="CreatedDateTime" Type="datetime" />
+    <Property Name="EditedDateTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tblSupplier">
+    <Key>
+      <PropertyRef Name="SupplierId" />
+    </Key>
+    <Property Name="SupplierId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CompanyName" Type="nvarchar" MaxLength="200" />
+    <Property Name="Address" Type="nvarchar" MaxLength="300" />
+    <Property Name="ContactNo" Type="nvarchar" MaxLength="100" />
+    <Property Name="WorkShopId" Type="int" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="150" />
+    <Property Name="EditedBy" Type="nvarchar" MaxLength="150" />
+    <Property Name="CreatedDateTime" Type="datetime" />
+    <Property Name="EditedDateTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tblUserActionMapping">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="user_id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="action_id" Type="int" Nullable="false" />
+    <Property Name="is_permitted" Type="int" />
+    <Property Name="agency_id" Type="int" />
+    <Property Name="WorkShopId" Type="int" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="128" />
+    <Property Name="EditedBy" Type="nvarchar" MaxLength="128" />
+    <Property Name="CreatedDateTime" Type="datetime" />
+    <Property Name="EditedDateTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tblWorkShopInformation">
+    <Key>
+      <PropertyRef Name="workShop_id" />
+    </Key>
+    <Property Name="workShop_id" Type="numeric" Precision="9" Scale="0" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="100" />
+    <Property Name="short_name" Type="nvarchar" MaxLength="50" />
+    <Property Name="reg_Number" Type="nvarchar" MaxLength="50" />
+    <Property Name="initial_date" Type="datetime" />
+    <Property Name="trec_number" Type="nvarchar" MaxLength="50" />
+    <Property Name="WorkShopId" Type="int" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="128" />
+    <Property Name="EditedBy" Type="nvarchar" MaxLength="128" />
+    <Property Name="CreatedDateTime" Type="datetime" />
+    <Property Name="EditedDateTime" Type="datetime" />
+    <Property Name="Address" Type="nvarchar" MaxLength="128" />
+  </EntityType>
+  <EntityType Name="tblWorkShopUser">
+    <Key>
+      <PropertyRef Name="workShop_id" />
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="workShop_id" Type="numeric" Precision="9" Scale="0" Nullable="false" />
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="is_admin" Type="decimal" Precision="1" Scale="0" Nullable="false" />
+    <Property Name="is_loggedIn" Type="decimal" Precision="1" Scale="0" />
+    <Property Name="last_logged_time" Type="datetime" />
+    <Property Name="approve_by" Type="nvarchar" MaxLength="128" />
+    <Property Name="approve_date" Type="decimal" Precision="9" Scale="0" />
+    <Property Name="WorkShopId" Type="int" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="128" />
+    <Property Name="EditedBy" Type="nvarchar" MaxLength="128" />
+    <Property Name="CreatedDateTime" Type="datetime" />
+    <Property Name="EditedDateTime" Type="datetime" />
+  </EntityType>
+  <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserClaims">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserLogins">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+    <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetRoles">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserRoles">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserRoles">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblAction_tblModule">
+    <End Role="tblModule" Type="Self.tblModule" Multiplicity="0..1" />
+    <End Role="tblAction" Type="Self.tblAction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblModule">
+        <PropertyRef Name="ModuleId" />
+      </Principal>
+      <Dependent Role="tblAction">
+        <PropertyRef Name="ModuleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblAgencyInformation_tblAgencyInformation">
+    <End Role="tblWorkShopInformation" Type="Self.tblWorkShopInformation" Multiplicity="1" />
+    <End Role="tblWorkShopInformation1" Type="Self.tblWorkShopInformation" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="tblWorkShopInformation">
+        <PropertyRef Name="workShop_id" />
+      </Principal>
+      <Dependent Role="tblWorkShopInformation1">
+        <PropertyRef Name="workShop_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblAgencyUser_AspNetUsers">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+    <End Role="tblWorkShopUser" Type="Self.tblWorkShopUser" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tblWorkShopUser">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblAgencyUser_tblAgencyUser">
+    <End Role="tblWorkShopInformation" Type="Self.tblWorkShopInformation" Multiplicity="1" />
+    <End Role="tblWorkShopUser" Type="Self.tblWorkShopUser" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblWorkShopInformation">
+        <PropertyRef Name="workShop_id" />
+      </Principal>
+      <Dependent Role="tblWorkShopUser">
+        <PropertyRef Name="workShop_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblBusInformation_tblRoute">
+    <End Role="tblRoute" Type="Self.tblRoute" Multiplicity="0..1" />
+    <End Role="tblBusInformation" Type="Self.tblBusInformation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblRoute">
+        <PropertyRef Name="RouteId" />
+      </Principal>
+      <Dependent Role="tblBusInformation">
+        <PropertyRef Name="RouteId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblBuyPartsFromSupplier_tblStore">
+    <End Role="tblStore" Type="Self.tblStore" Multiplicity="0..1" />
+    <End Role="tblBuyPartsFromSupplier" Type="Self.tblBuyPartsFromSupplier" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblStore">
+        <PropertyRef Name="StoreId" />
+      </Principal>
+      <Dependent Role="tblBuyPartsFromSupplier">
+        <PropertyRef Name="StoreId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblBuyPartsFromSupplierForBus_tblBuyPartsFromSupplierForBus">
+    <End Role="tblPartsInfo" Type="Self.tblPartsInfo" Multiplicity="0..1" />
+    <End Role="tblBuyPartsFromSupplier" Type="Self.tblBuyPartsFromSupplier" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblPartsInfo">
+        <PropertyRef Name="PartsId" />
+      </Principal>
+      <Dependent Role="tblBuyPartsFromSupplier">
+        <PropertyRef Name="PartsId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblBuyPartsFromSupplierForBus_tblSupplier">
+    <End Role="tblSupplier" Type="Self.tblSupplier" Multiplicity="0..1" />
+    <End Role="tblBuyPartsFromSupplier" Type="Self.tblBuyPartsFromSupplier" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblSupplier">
+        <PropertyRef Name="SupplierId" />
+      </Principal>
+      <Dependent Role="tblBuyPartsFromSupplier">
+        <PropertyRef Name="SupplierId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblEmployeeInformation_tblDesignation">
+    <End Role="tblDesignation" Type="Self.tblDesignation" Multiplicity="0..1" />
+    <End Role="tblEmployeeInformation" Type="Self.tblEmployeeInformation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblDesignation">
+        <PropertyRef Name="DesignationId" />
+      </Principal>
+      <Dependent Role="tblEmployeeInformation">
+        <PropertyRef Name="DesignationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblEmployeeInformation_tblRoute">
+    <End Role="tblRoute" Type="Self.tblRoute" Multiplicity="0..1" />
+    <End Role="tblEmployeeInformation" Type="Self.tblEmployeeInformation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblRoute">
+        <PropertyRef Name="RouteId" />
+      </Principal>
+      <Dependent Role="tblEmployeeInformation">
+        <PropertyRef Name="RouteId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblPartsTransfer_tblPartsInfo">
+    <End Role="tblPartsInfo" Type="Self.tblPartsInfo" Multiplicity="0..1" />
+    <End Role="tblPartsTransfer" Type="Self.tblPartsTransfer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblPartsInfo">
+        <PropertyRef Name="PartsId" />
+      </Principal>
+      <Dependent Role="tblPartsTransfer">
+        <PropertyRef Name="PartsId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblPartsTransfer_tblStore">
+    <End Role="tblStore" Type="Self.tblStore" Multiplicity="0..1" />
+    <End Role="tblPartsTransfer" Type="Self.tblPartsTransfer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblStore">
+        <PropertyRef Name="StoreId" />
+      </Principal>
+      <Dependent Role="tblPartsTransfer">
+        <PropertyRef Name="StoreId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblUserActionMapping_AspNetUsers">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+    <End Role="tblUserActionMapping" Type="Self.tblUserActionMapping" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tblUserActionMapping">
+        <PropertyRef Name="user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblUserActionMapping_tblAction">
+    <End Role="tblAction" Type="Self.tblAction" Multiplicity="1" />
+    <End Role="tblUserActionMapping" Type="Self.tblUserActionMapping" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblAction">
+        <PropertyRef Name="ActionId" />
+      </Principal>
+      <Dependent Role="tblUserActionMapping">
+        <PropertyRef Name="action_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="sp_BusInfoAndEmployeeInfoForSpecificBusRegistrationNo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="RegistrationNo" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_BusInfoForSpecificBusRegistrationNo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="RegistrationNo" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_BusInformationListForABusRoute" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="routeId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_EmployeeInformationForSpecificBusRoute" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="routeId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_PartsBuyHistoryForSpecificDateFromSupplier" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="supplierId" Type="int" Mode="In" />
+    <Parameter Name="date" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="sp_PartsBuyHistoryFromDateToDateFromSupplier" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="supplierId" Type="int" Mode="In" />
+    <Parameter Name="fromDate" Type="datetime" Mode="In" />
+    <Parameter Name="toDate" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="sp_totalCostHistoryFromDateToDateForBusRegistrationNoFullFinal" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="registrationNo" Type="nvarchar" Mode="In" />
+    <Parameter Name="fromDate" Type="datetime" Mode="In" />
+    <Parameter Name="toDate" Type="datetime" Mode="In" />
+  </Function>
+  <EntityContainer Name="HanifWorkShop_DBModelStoreContainer">
+    <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblAction" EntityType="Self.tblAction" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblBusInformation" EntityType="Self.tblBusInformation" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblBuyPartsFromSupplier" EntityType="Self.tblBuyPartsFromSupplier" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblDesignation" EntityType="Self.tblDesignation" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblEmployeeInformation" EntityType="Self.tblEmployeeInformation" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblModule" EntityType="Self.tblModule" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblPartsInfo" EntityType="Self.tblPartsInfo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblPartsTransfer" EntityType="Self.tblPartsTransfer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblRoute" EntityType="Self.tblRoute" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblStore" EntityType="Self.tblStore" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblSupplier" EntityType="Self.tblSupplier" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblUserActionMapping" EntityType="Self.tblUserActionMapping" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblWorkShopInformation" EntityType="Self.tblWorkShopInformation" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblWorkShopUser" EntityType="Self.tblWorkShopUser" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+      <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+      <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblAction_tblModule" Association="Self.FK_tblAction_tblModule">
+      <End Role="tblModule" EntitySet="tblModule" />
+      <End Role="tblAction" EntitySet="tblAction" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblAgencyInformation_tblAgencyInformation" Association="Self.FK_tblAgencyInformation_tblAgencyInformation">
+      <End Role="tblWorkShopInformation" EntitySet="tblWorkShopInformation" />
+      <End Role="tblWorkShopInformation1" EntitySet="tblWorkShopInformation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblAgencyUser_AspNetUsers" Association="Self.FK_tblAgencyUser_AspNetUsers">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="tblWorkShopUser" EntitySet="tblWorkShopUser" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblAgencyUser_tblAgencyUser" Association="Self.FK_tblAgencyUser_tblAgencyUser">
+      <End Role="tblWorkShopInformation" EntitySet="tblWorkShopInformation" />
+      <End Role="tblWorkShopUser" EntitySet="tblWorkShopUser" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblBusInformation_tblRoute" Association="Self.FK_tblBusInformation_tblRoute">
+      <End Role="tblRoute" EntitySet="tblRoute" />
+      <End Role="tblBusInformation" EntitySet="tblBusInformation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblBuyPartsFromSupplier_tblStore" Association="Self.FK_tblBuyPartsFromSupplier_tblStore">
+      <End Role="tblStore" EntitySet="tblStore" />
+      <End Role="tblBuyPartsFromSupplier" EntitySet="tblBuyPartsFromSupplier" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblBuyPartsFromSupplierForBus_tblBuyPartsFromSupplierForBus" Association="Self.FK_tblBuyPartsFromSupplierForBus_tblBuyPartsFromSupplierForBus">
+      <End Role="tblPartsInfo" EntitySet="tblPartsInfo" />
+      <End Role="tblBuyPartsFromSupplier" EntitySet="tblBuyPartsFromSupplier" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblBuyPartsFromSupplierForBus_tblSupplier" Association="Self.FK_tblBuyPartsFromSupplierForBus_tblSupplier">
+      <End Role="tblSupplier" EntitySet="tblSupplier" />
+      <End Role="tblBuyPartsFromSupplier" EntitySet="tblBuyPartsFromSupplier" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblEmployeeInformation_tblDesignation" Association="Self.FK_tblEmployeeInformation_tblDesignation">
+      <End Role="tblDesignation" EntitySet="tblDesignation" />
+      <End Role="tblEmployeeInformation" EntitySet="tblEmployeeInformation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblEmployeeInformation_tblRoute" Association="Self.FK_tblEmployeeInformation_tblRoute">
+      <End Role="tblRoute" EntitySet="tblRoute" />
+      <End Role="tblEmployeeInformation" EntitySet="tblEmployeeInformation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblPartsTransfer_tblPartsInfo" Association="Self.FK_tblPartsTransfer_tblPartsInfo">
+      <End Role="tblPartsInfo" EntitySet="tblPartsInfo" />
+      <End Role="tblPartsTransfer" EntitySet="tblPartsTransfer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblPartsTransfer_tblStore" Association="Self.FK_tblPartsTransfer_tblStore">
+      <End Role="tblStore" EntitySet="tblStore" />
+      <End Role="tblPartsTransfer" EntitySet="tblPartsTransfer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblUserActionMapping_AspNetUsers" Association="Self.FK_tblUserActionMapping_AspNetUsers">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="tblUserActionMapping" EntitySet="tblUserActionMapping" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblUserActionMapping_tblAction" Association="Self.FK_tblUserActionMapping_tblAction">
+      <End Role="tblAction" EntitySet="tblAction" />
+      <End Role="tblUserActionMapping" EntitySet="tblUserActionMapping" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

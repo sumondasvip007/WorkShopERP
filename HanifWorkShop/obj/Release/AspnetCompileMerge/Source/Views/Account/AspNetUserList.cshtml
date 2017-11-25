@@ -1,0 +1,143 @@
+﻿
+@{
+    Layout = null;
+}
+
+<div class="row" ng-controller="addAspNetUserController" ng-init="ForLoginSuccess()">
+
+    <div class="col-md-12" ng-hide="UserEditHideDiv">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>Edit User</h2>
+
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <div class="row">
+                    <form class="form-horizontal" name="AspNetUserForm">
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="UserFullName">
+                                User Full Name
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <input type="text" ng-model="AspNetUser.UserFullName" id="UserFullName" name="userFullName" class="form-control col-md-7 col-xs-12">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="UserName">
+                                Username <span class="required" style="color: red">*</span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <input type="text" ng-model="AspNetUser.UserName" id="UserName" name="userName" class="form-control col-md-7 col-xs-12" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="Email">
+                                Email <span class="required" style="color: red">*</span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <input type="email" ng-model="AspNetUser.Email" id="Email" name="Email" class="form-control col-md-7 col-xs-12" required>
+                                <p class="error" ng-show="AspNetUserForm.Email.$error.email || submitted">Please Provide correct email address</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="PhoneNumber">
+                                Phone Number <span class="required" style="color: red">*</span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <input type="text" ng-model="AspNetUser.PhoneNo" id="PhoneNumber" name="phoneNumber" class="form-control col-md-7 col-xs-12" required positive-numbers-only>
+                            </div>
+                        </div>
+                        @*<div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="Password">
+                                    Password <span class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input type="password" ng-model="AspNetUser.Password" id="Password" name="Password" class="form-control col-md-7 col-xs-12" ng-minlength="6" required>
+                                    <p class="error" ng-show="AspNetUserForm.Password.$error.minlength || submitted">Password must be at least be 6 digits</p>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="ConfirmPassword">
+                                    Confirm Password <span class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input type="password" ng-model="AspNetUser.ConfirmPassword" id="ConfirmPassword" name="ConfirmPassword" class="form-control col-md-7 col-xs-12" ng-minlength="6" required ng-blur="CheckPassword()">
+                                    <p class="error" ng-show="AspNetUserForm.ConfirmPassword.$error.mismatch || submitted">Password and confirm password does not match</p>
+                                </div>
+                            </div>*@
+
+                        <div class="form-group">
+                            <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                                <button class="btn btn-primary" type="submit" ng-click="UpdateUser()">Add</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <div class="col-md-12" ng-hide="UserListHideDiv">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>User List</h2>
+
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <div class="row">
+
+                    <table st-table="rowCollection" st-safe-src="UserList" class="table table-striped table-bordered bootstrap-datatable datatable">
+                        <thead>
+                            <tr>
+                                <th colspan="4">
+                                    Pages: <select ng-model="itemsByPage" ng-options="item for item in itemsPerPage"></select>
+                                    <input st-search="" style="float: right;" @*class="form-control"*@ placeholder="global search ..." type="text" />
+                                </th>
+                            </tr>
+                            <tr>
+                                <th st-sort="UserName">Username</th>
+                                <th st-sort="PhoneNo">PhoneNo</th>
+                                <th st-sort="Email">Email</th>
+                                <th>Action</th>
+                            </tr>
+
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="row in rowCollection">
+                                <td>{{row.UserName}}</td>
+                                <td>{{row.PhoneNo}}</td>
+                                <td>{{row.Email}}</td>
+
+                                <td class="center">
+                                    <button type="button" ng-click="EditUser(row)" class="btn btn-sm btn-info">
+                                        <i class="glyphicon glyphicon-edit">
+                                        </i>
+                                    </button>
+                                    <button type="button" ng-click="DeleteUser(row.Id)" class="btn btn-sm btn-danger">
+                                        <i class="glyphicon glyphicon-remove-circle">
+                                        </i>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="4" class="text-center">
+                                    <div st-pagination="" st-items-by-page="itemsByPage" st-displayed-pages="5"></div>
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </table>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

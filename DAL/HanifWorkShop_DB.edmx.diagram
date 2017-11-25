@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="8c174cd6cd1241a0863f11c22e130156" Name="Diagram1" ZoomLevel="84">
+        <EntityTypeShape EntityType="HanifWorkShop_DBModel.C__MigrationHistory" Width="1.5" PointX="5.75" PointY="1.875" />
+        <EntityTypeShape EntityType="HanifWorkShop_DBModel.AspNetRole" Width="1.5" PointX="0.75" PointY="8.375" />
+        <EntityTypeShape EntityType="HanifWorkShop_DBModel.AspNetUserClaim" Width="1.5" PointX="5.25" PointY="17.875" />
+        <EntityTypeShape EntityType="HanifWorkShop_DBModel.AspNetUserLogin" Width="1.5" PointX="5.25" PointY="15.375" />
+        <EntityTypeShape EntityType="HanifWorkShop_DBModel.AspNetUser" Width="1.5" PointX="3" PointY="6.875" />
+        <EntityTypeShape EntityType="HanifWorkShop_DBModel.tblAction" Width="1.5" PointX="6" PointY="21.25" />
+        <EntityTypeShape EntityType="HanifWorkShop_DBModel.tblBusInformation" Width="1.5" PointX="11" PointY="23.5" />
+        <EntityTypeShape EntityType="HanifWorkShop_DBModel.tblBuyPartsFromSupplier" Width="1.5" PointX="16" PointY="4.875" />
+        <EntityTypeShape EntityType="HanifWorkShop_DBModel.tblDesignation" Width="1.5" PointX="8.75" PointY="14.375" />
+        <EntityTypeShape EntityType="HanifWorkShop_DBModel.tblEmployeeInformation" Width="1.5" PointX="11" PointY="17.25" />
+        <EntityTypeShape EntityType="HanifWorkShop_DBModel.tblModule" Width="1.5" PointX="3.75" PointY="21.625" />
+        <EntityTypeShape EntityType="HanifWorkShop_DBModel.tblPartsInfo" Width="1.5" PointX="13.75" PointY="10.5" />
+        <EntityTypeShape EntityType="HanifWorkShop_DBModel.tblPartsTransfer" Width="1.5" PointX="13" PointY="5" />
+        <EntityTypeShape EntityType="HanifWorkShop_DBModel.tblRoute" Width="1.5" PointX="8.75" PointY="18.25" />
+        <EntityTypeShape EntityType="HanifWorkShop_DBModel.tblStore" Width="1.5" PointX="10.75" PointY="5.75" />
+        <EntityTypeShape EntityType="HanifWorkShop_DBModel.tblSupplier" Width="1.5" PointX="13.75" PointY="0.75" />
+        <EntityTypeShape EntityType="HanifWorkShop_DBModel.tblUserActionMapping" Width="1.5" PointX="8.25" PointY="7.5" />
+        <EntityTypeShape EntityType="HanifWorkShop_DBModel.tblWorkShopInformation" Width="1.5" PointX="3" PointY="2.125" />
+        <EntityTypeShape EntityType="HanifWorkShop_DBModel.tblWorkShopUser" Width="1.5" PointX="5.25" PointY="7.25" />
+        <AssociationConnector Association="HanifWorkShop_DBModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" />
+        <AssociationConnector Association="HanifWorkShop_DBModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" />
+        <AssociationConnector Association="HanifWorkShop_DBModel.FK_tblAgencyUser_AspNetUsers" />
+        <AssociationConnector Association="HanifWorkShop_DBModel.FK_tblUserActionMapping_AspNetUsers" />
+        <AssociationConnector Association="HanifWorkShop_DBModel.FK_tblAction_tblModule" />
+        <AssociationConnector Association="HanifWorkShop_DBModel.FK_tblUserActionMapping_tblAction" />
+        <AssociationConnector Association="HanifWorkShop_DBModel.FK_tblBusInformation_tblRoute" />
+        <AssociationConnector Association="HanifWorkShop_DBModel.FK_tblBuyPartsFromSupplier_tblStore" />
+        <AssociationConnector Association="HanifWorkShop_DBModel.FK_tblBuyPartsFromSupplierForBus_tblBuyPartsFromSupplierForBus" />
+        <AssociationConnector Association="HanifWorkShop_DBModel.FK_tblBuyPartsFromSupplierForBus_tblSupplier" />
+        <AssociationConnector Association="HanifWorkShop_DBModel.FK_tblEmployeeInformation_tblDesignation" />
+        <AssociationConnector Association="HanifWorkShop_DBModel.FK_tblEmployeeInformation_tblRoute" />
+        <AssociationConnector Association="HanifWorkShop_DBModel.FK_tblPartsTransfer_tblPartsInfo" />
+        <AssociationConnector Association="HanifWorkShop_DBModel.FK_tblPartsTransfer_tblStore" />
+        <AssociationConnector Association="HanifWorkShop_DBModel.FK_tblAgencyInformation_tblAgencyInformation" />
+        <AssociationConnector Association="HanifWorkShop_DBModel.FK_tblAgencyUser_tblAgencyUser" />
+        <AssociationConnector Association="HanifWorkShop_DBModel.AspNetUserRoles" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

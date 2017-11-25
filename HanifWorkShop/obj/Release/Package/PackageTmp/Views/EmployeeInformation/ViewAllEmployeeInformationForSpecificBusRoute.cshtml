@@ -1,0 +1,94 @@
+﻿
+@{
+    Layout = null;
+}
+
+
+<div class="row" ng-controller="viewAllEmployeeInformationForSpecificBusRouteController" ng-init="ForLoginSuccess()">
+    <div class="col-md-12">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>All Employee Information For Specific Bus Route</h2>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <div class="row">
+                    <form class="form-horizontal" name="viewAllEmployeeInformationForSpecificBusRouteForm">
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="RouteId">
+                              Bus Route <span class="required" style="color: red">*</span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                @*<select ng-model="Route.RouteId" id="RouteId" name="RouteId" class="form-control" ng-options="x.RouteId as x.RouteName for x in RouteList" ng-change="RouteClick()" required>
+                                    <option value="">Select Route....</option>
+                                </select>*@
+
+
+                                <ui-select ng-model="RouteList.selected" theme="bootstrap" required>
+
+                                    <ui-select-match placeholder="Select or search...">{{$select.selected.RouteName}}</ui-select-match>
+
+                                    <ui-select-choices repeat="e in RouteNoList | filter: $select.search">
+                                        {{e.RouteName}}
+
+                                    </ui-select-choices>
+
+                                </ui-select>
+
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                                <button class="btn btn-primary" type="submit" ng-click="SearchAllEmployeeInformationForSpecificBusRoute()">Search</button>
+                                &nbsp; &nbsp;
+                                <input type="submit" class="btn btn-primary" value="Generate Report" ng-show="reportButton" data-ng-click="GenerateReportForSearchResult()" />
+                                &nbsp; &nbsp;
+                                <a id="fbplus_01" class="iframe btn btn-primary" ng-href="/EmployeeInformation/ViewPdfReportForSearchResult/?routeId={{RouteList.selected.RouteId}}" ng-show="reportButton" fancyboxable>View Report</a>
+                            </div>
+                        </div>
+                
+                        <table st-table="rowCollection" st-safe-src="EmployeeList" class="table table-striped table-bordered bootstrap-datatable datatable">
+                            <thead>
+                                <tr>
+                                    <th colspan="7">
+                                        Pages: <select ng-model="itemsByPage" ng-options="item for item in itemsPerPage"></select>
+                                        <input st-search="" style="float: right;"  placeholder="global search ..." type="text" />
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <th st-sort="EmployeeName">Name</th>
+                                    <th st-sort="EmployeeEmail">Email</th>
+                                    <th st-sort="EmployeeAddress">Address</th>
+                                    <th st-sort="ContactNumber">Contact No</th>
+                                    <th st-sort="EmployeeNid">Nid</th>
+                                    <th st-sort="DesignationName">Designation</th>
+                                    <th st-sort="Salary">Salary</th>
+                                </tr>
+
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="row in rowCollection">
+                                    <td>{{row.EmployeeName}}</td>
+                                    <td>{{row.EmployeeEmail}}</td>
+                                    <td>{{row.EmployeeAddress}}</td>
+                                    <td>{{row.ContactNumber}}</td>
+                                    <td>{{row.EmployeeNid}}</td>
+                                    <td>{{row.DesignationName}}</td>
+                                    <td>{{row.Salary | number:2}}</td>
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td colspan="7" class="text-center">
+                                        <div st-pagination="" st-items-by-page="itemsByPage" st-displayed-pages="7"></div>
+                                    </td>
+                                </tr>
+                            </tfoot>
+                        </table>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
